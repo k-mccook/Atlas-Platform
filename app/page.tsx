@@ -1,119 +1,126 @@
+import Link from "next/link";
+
 const features = [
-  {
-    title: "AI Guideline Search",
-    description:
-      "Surface FNMA, FHA, Freddie Mac, and USPAP guidance instantly with context-aware search.",
-  },
-  {
-    title: "USPAP Research",
-    description:
-      "Get concise, cited guidance for appraisal standards, ethics, and reporting requirements.",
-  },
-  {
-    title: "Report Support",
-    description:
-      "Draft stronger narratives and supporting analysis with AI-generated recommendations.",
-  },
+  { title: "AI Guideline Search", description: "Find underwriting and appraisal guidance instantly." },
+  { title: "USPAP Research", description: "Surface current standards and references in seconds." },
+  { title: "Report Support", description: "Draft polished narrative support with AI assistance." },
+  { title: "Assignment Management", description: "Keep tasks, deadlines, and notes organized." },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.16),_transparent_32%),linear-gradient(135deg,_#f8fbff_0%,_#eef4ff_100%)] text-slate-900">
-      <section className="mx-auto flex max-w-7xl flex-col px-6 py-16 lg:px-8 lg:py-24">
-        <nav className="mb-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-lg font-semibold text-white shadow-lg shadow-slate-900/20">
-              A
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.18),_transparent_45%),linear-gradient(135deg,_#f8fbff_0%,_#eef6ff_100%)] text-slate-900">
+      <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-6 py-6 sm:px-8 lg:px-10">
+        <header className="rounded-full border border-blue-100 bg-white/80 px-5 py-3 shadow-sm backdrop-blur">
+          <nav className="flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-lg font-semibold text-white">
+                A
+              </div>
+              <span className="text-xl font-semibold tracking-tight text-slate-900">
+                Atlas
+              </span>
+            </Link>
+            <div className="flex items-center gap-3">
+              <Link
+                href="/login"
+                className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+              >
+                Login
+              </Link>
+              <Link
+                href="/signup"
+                className="rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700"
+              >
+                Create Account
+              </Link>
             </div>
-            <div>
-              <p className="text-xl font-semibold tracking-tight text-slate-900">Atlas</p>
-              <p className="text-sm text-slate-500">Appraisal Intelligence</p>
-            </div>
-          </div>
-          <a
-            href="#features"
-            className="hidden rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm md:inline-flex"
-          >
-            Platform
-          </a>
-        </nav>
+          </nav>
+        </header>
 
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <span className="inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700">
-              Trusted by modern appraisal teams
-            </span>
-            <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+        <section className="grid flex-1 items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
+          <div className="max-w-2xl">
+            <div className="mb-6 inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700">
+              AI-powered appraisal intelligence
+            </div>
+            <h1 className="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
               The AI Operating System for Real Estate Appraisers
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            <p className="mt-6 text-lg leading-8 text-slate-600 sm:text-xl">
               Research FNMA, FHA, Freddie Mac and USPAP guidance in seconds.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#features"
-                className="inline-flex items-center justify-center rounded-full bg-slate-900 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:bg-blue-900"
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="/signup"
+                className="rounded-full bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700"
               >
-                Get Started
-              </a>
-              <a
-                href="#features"
-                className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-3.5 text-base font-semibold text-slate-700 transition hover:border-blue-200 hover:text-blue-700"
+                Start Free
+              </Link>
+              <Link
+                href="/login"
+                className="rounded-full border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-700 transition hover:border-blue-400 hover:text-blue-700"
               >
-                See how it works
-              </a>
+                Sign In
+              </Link>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-4 text-sm text-slate-500">
-              <span className="rounded-full bg-white/80 px-3 py-1 shadow-sm">Fast compliance review</span>
-              <span className="rounded-full bg-white/80 px-3 py-1 shadow-sm">Cited research summaries</span>
-              <span className="rounded-full bg-white/80 px-3 py-1 shadow-sm">Built for appraisal workflows</span>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2">
+              {features.map((feature) => (
+                <div
+                  key={feature.title}
+                  className="rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-sm"
+                >
+                  <h2 className="text-lg font-semibold text-slate-900">{feature.title}</h2>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{feature.description}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-300/40">
-            <div className="rounded-2xl bg-slate-900 p-5 text-white">
-              <p className="text-sm font-medium text-blue-200">Live workspace</p>
-              <div className="mt-4 space-y-3">
-                <div className="rounded-xl border border-white/10 bg-white/10 p-3">
-                  <p className="text-sm font-semibold">Ask Atlas</p>
-                  <p className="mt-1 text-sm text-slate-300">
-                    “Summarize FHA guidance for this property type.”
+          <div className="mx-auto w-full max-w-xl">
+            <div className="overflow-hidden rounded-[28px] border border-blue-100 bg-white p-4 shadow-[0_30px_80px_-20px_rgba(37,99,235,0.35)]">
+              <div className="rounded-[22px] bg-slate-950 p-5 text-white">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-blue-200">Ask Atlas</p>
+                    <p className="mt-1 text-xl font-semibold">Guidance Overview</p>
+                  </div>
+                  <div className="rounded-full bg-blue-500/20 px-3 py-1 text-sm text-blue-200">
+                    Live
+                  </div>
+                </div>
+
+                <div className="mt-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+                  <p className="text-sm text-slate-400">Suggested response</p>
+                  <p className="mt-3 text-lg font-medium text-white">
+                    Review FHA requirements and build a concise support memo for this assignment.
                   </p>
                 </div>
-                <div className="rounded-xl border border-white/10 bg-white/10 p-3">
-                  <p className="text-sm font-semibold">Guidance overview</p>
-                  <p className="mt-1 text-sm text-slate-300">
-                    FNMA and Freddie Mac standards surfaced in seconds.
-                  </p>
-                </div>
-                <div className="rounded-xl border border-white/10 bg-white/10 p-3">
-                  <p className="text-sm font-semibold">Report draft</p>
-                  <p className="mt-1 text-sm text-slate-300">
-                    Supporting language ready for review and submission.
-                  </p>
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+                    <p className="text-sm text-slate-400">Report Draft</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">
+                      Generate a first-pass appraisal narrative with cited guidance.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+                    <p className="text-sm text-slate-400">Priority</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">
+                      Track deadlines, assignment notes, and reviewer requests.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+      </div>
 
-        <div id="features" className="mt-16 grid gap-6 md:grid-cols-3">
-          {features.map((feature) => (
-            <article
-              key={feature.title}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/80"
-            >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-lg font-semibold text-blue-700">
-                ✦
-              </div>
-              <h2 className="mt-4 text-xl font-semibold text-slate-900">{feature.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{feature.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <footer className="border-t border-slate-200 bg-white/70 py-6 text-center text-sm text-slate-600 backdrop-blur">
+        © 2026 Atlas Appraisal Intelligence
+      </footer>
     </main>
   );
 }
