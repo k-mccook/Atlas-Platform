@@ -115,7 +115,7 @@ export default function AssignmentDetailPage() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          <DocumentManager />
+          <DocumentManager assignmentId={assignment.id} />
 
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-lg font-semibold text-slate-900">Notes</h2>

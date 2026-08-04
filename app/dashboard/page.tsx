@@ -4,6 +4,7 @@ import WelcomeCard from '../components/WelcomeCard';
 import SearchBar from '../components/SearchBar';
 import QuickActions from '../components/QuickActions';
 import AssignmentList from '../components/AssignmentList';
+import DashboardStats from '../components/DashboardStats';
 
 export default function DashboardPage() {
   return (
@@ -15,6 +16,8 @@ export default function DashboardPage() {
 
         <div className="space-y-8 p-10">
           <WelcomeCard />
+
+          <DashboardStats />
 
           <SearchBar />
 
