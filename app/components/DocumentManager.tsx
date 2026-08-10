@@ -1,19 +1,56 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { supabase } from '../lib/supabase';
 
 interface DocumentManagerProps {
   assignmentId: string;
 }
 
+type DocumentFile = {
+  name: string;
+  path: string;
+  created_at: string;
+};
+
 export default function DocumentManager({
   assignmentId,
 }: DocumentManagerProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const [documents, setDocuments] = useState<DocumentFile[]>([]);
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState('');
+
+  const loadDocuments = async () => {
+    const { data, error } = await supabase.storage
+      .from('assignment-documents')
+      .list(assignmentId, {
+        sortBy: {
+          column: 'created_at',
+          order: 'desc',
+        },
+      });
+
+    if (error) {
+      console.error('Could not load documents:', error);
+      return;
+    }
+
+    const files = (data || [])
+      .filter((file) => file.name)
+      .map((file) => ({
+        name: file.name,
+        path: `${assignmentId}/${file.name}`,
+        created_at: file.created_at || '',
+      }));
+
+    setDocuments(files);
+  };
+
+  useEffect(() => {
+    void loadDocuments();
+  }, [assignmentId]);
 
   const handleUpload = async (
     event: React.ChangeEvent<HTMLInputElement>
@@ -27,7 +64,7 @@ export default function DocumentManager({
 
     try {
       const fileExtension = file.name.split('.').pop();
-      const fileName = `${Date.now()}.${fileExtension}`;
+      const fileName = `${Date.now()}-${file.name}`;
       const filePath = `${assignmentId}/${fileName}`;
 
       const { error } = await supabase.storage
@@ -39,8 +76,10 @@ export default function DocumentManager({
       }
 
       setMessage(`Successfully uploaded: ${file.name}`);
+
+      await loadDocuments();
     } catch (error) {
-      console.error(error);
+      console.error('Upload error:', error);
       setMessage('Upload failed. Please try again.');
     } finally {
       setUploading(false);
@@ -49,6 +88,20 @@ export default function DocumentManager({
         fileInputRef.current.value = '';
       }
     }
+  };
+
+  const openDocument = async (path: string) => {
+    const { data, error } = await supabase.storage
+      .from('assignment-documents')
+      .createSignedUrl(path, 3600);
+
+    if (error) {
+      console.error('Could not open document:', error);
+      setMessage('Could not open this document.');
+      return;
+    }
+
+    window.open(data.signedUrl, '_blank');
   };
 
   return (
@@ -75,14 +128,43 @@ export default function DocumentManager({
         onChange={handleUpload}
       />
 
-      {message ? (
+      {message && (
         <div className="mt-4 rounded-xl bg-slate-50 p-3 text-sm text-slate-700">
           {message}
         </div>
-      ) : (
+      )}
+
+      {documents.length === 0 ? (
         <p className="mt-6 text-sm text-slate-500">
           No documents uploaded yet.
         </p>
+      ) : (
+        <div className="mt-6 space-y-3">
+          {documents.map((document) => (
+            <div
+              key={document.path}
+              className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-slate-50 p-4"
+            >
+              <div className="min-w-0">
+                <p className="truncate text-sm font-semibold text-slate-900">
+                  {document.name}
+                </p>
+
+                <p className="mt-1 text-xs text-slate-500">
+                  Uploaded document
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => openDocument(document.path)}
+                className="shrink-0 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"
+              >
+                View
+              </button>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
