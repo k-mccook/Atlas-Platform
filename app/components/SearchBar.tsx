@@ -2,16 +2,25 @@
 
 import { useState } from 'react';
 
+type AtlasResult = {
+  answer: string;
+  category: string;
+  confidence: 'High' | 'Medium' | 'Low';
+  sources: string[];
+};
+
 export default function SearchBar() {
   const [question, setQuestion] = useState('');
-  const [answer, setAnswer] = useState('');
+  const [result, setResult] = useState<AtlasResult | null>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const askAtlas = async () => {
     if (!question.trim()) return;
 
     setLoading(true);
-    setAnswer('');
+    setError('');
+    setResult(null);
 
     try {
       const response = await fetch('/api/ask-atlas', {
@@ -20,7 +29,7 @@ export default function SearchBar() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          question,
+          question: question.trim(),
         }),
       });
 
@@ -30,10 +39,10 @@ export default function SearchBar() {
         throw new Error(data.error || 'Something went wrong.');
       }
 
-      setAnswer(data.answer);
+      setResult(data);
     } catch (error) {
-      console.error(error);
-      setAnswer('Atlas could not process your question.');
+      console.error('Ask Atlas error:', error);
+      setError('Atlas could not process your question.');
     } finally {
       setLoading(false);
     }
@@ -68,15 +77,54 @@ export default function SearchBar() {
         </button>
       </div>
 
-      {answer && (
+      {error && (
+        <div className="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          {error}
+        </div>
+      )}
+
+      {result && (
         <div className="mt-5 rounded-xl border border-blue-100 bg-blue-50 p-5">
-          <p className="text-sm font-semibold text-blue-900">
-            Atlas
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
+              Atlas
+            </span>
+
+            <span className="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">
+              {result.category}
+            </span>
+
+            <span className="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">
+              Confidence: {result.confidence}
+            </span>
+          </div>
+
+          <p className="mt-4 text-sm leading-7 text-slate-700">
+            {result.answer}
           </p>
 
-          <p className="mt-2 text-sm leading-7 text-slate-700">
-            {answer}
-          </p>
+          {result.sources.length > 0 ? (
+            <div className="mt-5 border-t border-blue-100 pt-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-600">
+                Sources
+              </p>
+
+              <ul className="mt-2 space-y-1">
+                {result.sources.map((source) => (
+                  <li
+                    key={source}
+                    className="text-sm text-slate-600"
+                  >
+                    {source}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <div className="mt-5 border-t border-blue-100 pt-4 text-xs text-slate-500">
+              No verified sources have been attached yet.
+            </div>
+          )}
         </div>
       )}
     </div>
