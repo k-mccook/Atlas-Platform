@@ -103,14 +103,14 @@ export default function SearchBar() {
             {result.answer}
           </p>
 
-          {result.sources.length > 0 ? (
+          {(result.sources ?? []).length > 0 ? (
             <div className="mt-5 border-t border-blue-100 pt-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-600">
                 Sources
               </p>
 
               <ul className="mt-2 space-y-1">
-                {result.sources.map((source) => (
+                {(result.sources ?? []).map((source) => (
                   <li
                     key={source}
                     className="text-sm text-slate-600"
