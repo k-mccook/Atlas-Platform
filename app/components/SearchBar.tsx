@@ -2,11 +2,21 @@
 
 import { useState } from 'react';
 
+type AtlasSource = {
+  chunk_id?: string;
+  source_id?: string;
+  source_title?: string;
+  organization?: string;
+  source_type?: string;
+  source_url?: string;
+  content?: string;
+};
+
 type AtlasResult = {
   answer: string;
   category: string;
   confidence: 'High' | 'Medium' | 'Low';
-  sources: string[];
+  sources: AtlasSource[];
 };
 
 export default function SearchBar() {
@@ -103,19 +113,37 @@ export default function SearchBar() {
             {result.answer}
           </p>
 
-          {(result.sources ?? []).length > 0 ? (
+          {result.sources && result.sources.length > 0 ? (
             <div className="mt-5 border-t border-blue-100 pt-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-600">
                 Sources
               </p>
 
-              <ul className="mt-2 space-y-1">
-                {(result.sources ?? []).map((source) => (
+              <ul className="mt-2 space-y-2">
+                {result.sources.map((source, index) => (
                   <li
-                    key={source}
-                    className="text-sm text-slate-600"
+                    key={
+                      source.chunk_id ??
+                      source.source_id ??
+                      `source-${index}`
+                    }
+                    className="rounded-lg bg-white p-3 text-sm text-slate-600"
                   >
-                    {source}
+                    <div className="font-medium text-slate-800">
+                      {source.source_title || 'Unknown source'}
+                    </div>
+
+                    {source.organization && (
+                      <div className="mt-1 text-xs text-slate-500">
+                        {source.organization}
+                      </div>
+                    )}
+
+                    {source.source_type && (
+                      <div className="mt-1 text-xs text-slate-400">
+                        {source.source_type}
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>
