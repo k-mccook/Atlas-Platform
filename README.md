@@ -20,6 +20,45 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Ask Atlas regression tests
+
+Run `npm test` to check all eight validated Fannie Mae questions automatically.
+No running dashboard, new packages, paid testing service, or OpenAI credits are
+required. Use Node 20 or newer (validated locally with Node 24).
+
+These integration tests call the real `app/api/ask-atlas/route.ts` POST handler
+with a Web Request and query the configured Supabase `search_knowledge` function.
+Node's built-in test runner and the installed TypeScript compiler load the route
+in memory. Production files and dependencies are not rewritten or mocked.
+No database write operations are added by the tests.
+
+Use the existing `.env.local` or environment variables to configure
+`NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`. Like the route,
+the tests prefer `SUPABASE_SERVICE_ROLE_KEY` if present. Environment files remain
+ignored by Git. Network access and the existing knowledge-base records are
+required. Missing configuration or retrieval failures fail rather than skip.
+The current handler does not use the OpenAI key.
+
+Each question checks status, topic, category, authority, confidence, primary
+section, a nonempty answer without the insufficient-guidance fallback, and a
+primary source with an official HTTPS URL identifying the expected section.
+Results are printed per question; any failure produces a nonzero exit code.
+Each case has a 45-second test timeout.
+
+Add questions to `tests/ask-atlas.cases.mjs`. Entries define `question`, `topic`,
+`category`, `section`, `authority`, and `confidence`; the current list defaults
+the last two to Fannie Mae and High. Add an official hostname to `authorities`
+for another authority. Extend the URL assertion if its section URL convention
+differs from the current path-segment convention.
+
+These tests cover API/retrieval behavior against the live knowledge base, not
+browser rendering, guideline accuracy, or exact answer wording. Database changes
+can cause legitimate failures; investigate before changing expectations.
+The in-memory loader supports the current route's package imports. Future local
+TypeScript imports or Next request-context APIs may require extending the loader
+or testing through a running server. Run `npm run build` separately for Next.js
+compilation and TypeScript validation.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
