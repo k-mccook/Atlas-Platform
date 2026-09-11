@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { supabase } from '../lib/supabase';
 
 type AtlasSource = {
   chunk_id?: string;
@@ -111,6 +112,7 @@ export default function SearchBar() {
   const [result, setResult] = useState<AtlasResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [signInRequired, setSignInRequired] = useState(false);
 
   const askAtlas = async (questionToAsk?: string) => {
     const finalQuestion = (questionToAsk ?? question).trim();
@@ -120,33 +122,45 @@ export default function SearchBar() {
     setQuestion(finalQuestion);
     setLoading(true);
     setError('');
+    setSignInRequired(false);
     setResult(null);
 
     try {
+      // The browser supplies the token; the API independently verifies it.
+      const { data, error: sessionError } = await supabase.auth.getSession();
+      if (sessionError || !data.session) {
+        setSignInRequired(true);
+        setError('Please sign in to use Ask Atlas.');
+        return;
+      }
       const response = await fetch('/api/ask-atlas', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${data.session.access_token}`,
         },
         body: JSON.stringify({
           question: finalQuestion,
         }),
       });
 
-      const data = await response.json();
+      const resultData = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Something went wrong.');
+        if (response.status === 401) {
+          setSignInRequired(true);
+          setError('Please sign in to use Ask Atlas.');
+        } else {
+          setError(response.status === 503
+            ? 'Sign-in verification is temporarily unavailable. Please try again.'
+            : 'Atlas could not process your question. Please try again.');
+        }
+        return;
       }
 
-      setResult(data);
-    } catch (error) {
-      console.error('Ask Atlas error:', error);
-      setError(
-        error instanceof Error
-          ? error.message
-          : 'Atlas could not process your question.'
-      );
+      setResult(resultData);
+    } catch {
+      setError('Atlas could not process your question. Please try again or sign in again.');
     } finally {
       setLoading(false);
     }
@@ -284,6 +298,11 @@ export default function SearchBar() {
               <p className="mt-1 text-sm leading-6 text-red-700">
                 {error}
               </p>
+              {signInRequired && (
+                <a href="/login" className="mt-2 inline-block font-semibold text-blue-700 underline">
+                  Sign in to Atlas
+                </a>
+              )}
             </div>
           </div>
         </div>

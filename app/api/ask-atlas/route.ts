@@ -888,25 +888,21 @@ function buildAnswer(
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-
-    const question =
-      typeof body?.question === 'string'
-        ? body.question.trim()
-        : '';
-
-    if (!question) {
+    const bearer = /^Bearer ([A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)$/i.exec(
+      request.headers.get('authorization') ?? ''
+    );
+    if (!bearer) {
       return NextResponse.json(
-        { error: 'Please enter a question.' },
-        { status: 400 }
+        { error: 'Please sign in to use Ask Atlas.' },
+        { status: 401 }
       );
     }
+    const token = bearer[1];
 
     const supabaseUrl =
       process.env.NEXT_PUBLIC_SUPABASE_URL;
 
     const supabaseKey =
-      process.env.SUPABASE_SERVICE_ROLE_KEY ||
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
     if (!supabaseUrl || !supabaseKey) {
@@ -923,11 +919,52 @@ export async function POST(request: Request) {
       supabaseUrl,
       supabaseKey,
       {
+        global: { headers: { Authorization: `Bearer ${token}` } },
         auth: {
           persistSession: false,
+          autoRefreshToken: false,
+          detectSessionInUrl: false,
         },
       }
     );
+
+    // Verify independently; never trust a decoded token or browser user object.
+    // Keep credentials and authentication error details out of logs/responses.
+    let verified;
+    try {
+      verified = await supabase.auth.getUser(token);
+    } catch {
+      return NextResponse.json(
+        { error: 'Sign-in verification is temporarily unavailable.' },
+        { status: 503 }
+      );
+    }
+    if (verified.error) {
+      const invalidCredentials = [400, 401, 403, 422].includes(verified.error.status ?? 0);
+      return NextResponse.json(
+        { error: invalidCredentials
+          ? 'Please sign in to use Ask Atlas.'
+          : 'Sign-in verification is temporarily unavailable.' },
+        { status: invalidCredentials ? 401 : 503 }
+      );
+    }
+    if (!verified.data.user?.id || verified.data.user.role !== 'authenticated' || verified.data.user.is_anonymous) {
+      return NextResponse.json(
+        { error: 'Please sign in to use Ask Atlas.' },
+        { status: 401 }
+      );
+    }
+
+    let body;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ error: 'Please enter a question.' }, { status: 400 });
+    }
+    const question = typeof body?.question === 'string' ? body.question.trim() : '';
+    if (!question) {
+      return NextResponse.json({ error: 'Please enter a question.' }, { status: 400 });
+    }
 
     const targetSource =
       detectTargetSource(question);
@@ -948,15 +985,13 @@ export async function POST(request: Request) {
 
     if (error) {
       console.error(
-        'Atlas knowledge search error:',
-        error
+        'Atlas knowledge search failed.'
       );
 
       return NextResponse.json(
         {
           error:
             'Atlas could not search the knowledge base.',
-          details: error.message,
         },
         { status: 500 }
       );
@@ -1108,10 +1143,9 @@ export async function POST(request: Request) {
       result_count:
         sources.length,
     });
-  } catch (error) {
+  } catch {
     console.error(
-      'Ask Atlas API error:',
-      error
+      'Ask Atlas API failed.'
     );
 
     return NextResponse.json(

@@ -22,7 +22,8 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Ask Atlas regression tests
 
-Run `npm test` to check all eight validated Fannie Mae questions automatically.
+Run `npm test` for the complete security and authenticated regression suite,
+including all eight validated Fannie Mae questions.
 No running dashboard, new packages, paid testing service, or OpenAI credits are
 required. Use Node 20 or newer (validated locally with Node 24).
 
@@ -30,13 +31,21 @@ These integration tests call the real `app/api/ask-atlas/route.ts` POST handler
 with a Web Request and query the configured Supabase `search_knowledge` function.
 Node's built-in test runner and the installed TypeScript compiler load the route
 in memory. Production files and dependencies are not rewritten or mocked.
-No database write operations are added by the tests.
+No knowledge-data writes, SQL permission changes or user creation are performed
+by the tests. Live authenticated tests sign in normally to Supabase Auth, which
+can create normal session/audit records. Isolated security tests substitute only
+the Supabase client to check denial paths and token forwarding without credentials.
 
 Use the existing `.env.local` or environment variables to configure
-`NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`. Like the route,
-the tests prefer `SUPABASE_SERVICE_ROLE_KEY` if present. Environment files remain
-ignored by Git. Network access and the existing knowledge-base records are
-required. Missing configuration or retrieval failures fail rather than skip.
+`NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`. The route and tests
+do not use `SUPABASE_SERVICE_ROLE_KEY` for research. Full integration also requires
+separately approved `ATLAS_TEST_EMAIL` and `ATLAS_TEST_PASSWORD` for a dedicated
+existing test account in ignored local configuration or CI secrets. Never commit
+or print those values or access tokens. Do not create an account or add credentials
+without approval. Test session tokens stay in memory, with persistence and refresh
+disabled. Environment files remain ignored by Git. Network access and the existing
+knowledge-base records are required. Missing configuration or retrieval failures
+fail rather than silently skip.
 The current handler does not use the OpenAI key.
 
 Each question checks status, topic, category, authority, confidence, primary
@@ -44,6 +53,35 @@ section, a nonempty answer without the insufficient-guidance fallback, and a
 primary source with an official HTTPS URL identifying the expected section.
 Results are printed per question; any failure produces a nonzero exit code.
 Each case has a 45-second test timeout.
+
+Run just the isolated security checks (no account, configuration or network needed):
+
+```sh
+node --test --test-name-pattern="Authentication security" tests/ask-atlas.test.mjs
+```
+
+Run all currently available checks without a live test account (public Supabase
+configuration and network access are needed for the public-access group):
+
+```sh
+node --test --test-name-pattern="Authentication security|Public access integration" tests/ask-atlas.test.mjs
+```
+
+These filtered commands defer the eight authenticated Fannie regressions and the
+direct authenticated RPC check. They do not prove those nine checks pass. Those
+tests are currently deferred by user instruction; no test credentials were added.
+
+The public-access tests verify a forged token and the anon API key cannot act as
+user authentication, and check direct anon RPC access for the chosen rollout
+stage. `ATLAS_TEST_RPC_ACCESS` defaults to `post-revoke`, requiring direct anonymous
+RPC denial after the approved SQL was executed on 2026-09-11. `pre-revoke` is only
+for explicitly testing a historical environment before that change.
+This optional non-secret test setting does not change any database permissions.
+
+Stage 2 application authentication uses the existing browser session's bearer
+token and server-side `getUser(token)` verification. The database REVOKE
+was executed with approval on 2026-09-11. See [Stage 2 access and rollout](docs/database/security/stage-2-access.md)
+and [executed SQL record](docs/database/security/stage-2-rpc-access.sql).
 
 Add questions to `tests/ask-atlas.cases.mjs`. Entries define `question`, `topic`,
 `category`, `section`, `authority`, and `confidence`; the current list defaults
