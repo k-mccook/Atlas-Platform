@@ -1,0 +1,670 @@
+{
+  "capture_date_utc": "2026-09-10",
+  "verification": "Verified through SELECT-only PostgreSQL catalog queries in the user-authenticated Atlas Supabase SQL editor. Normalized/grouped representation; not a full cluster dump.",
+  "server_version": "17.6",
+  "tables": [
+    {
+      "name": "knowledge_chunks",
+      "schema": "public",
+      "kind": "r",
+      "owner": "postgres",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "persistence": "p",
+      "options": null,
+      "columns": [
+        {
+          "ordinal": 1,
+          "name": "id",
+          "type": "uuid",
+          "not_null": true,
+          "expression": "gen_random_uuid()",
+          "identity": "",
+          "generated": "",
+          "collation": null
+        },
+        {
+          "ordinal": 2,
+          "name": "source_id",
+          "type": "uuid",
+          "not_null": true,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": null
+        },
+        {
+          "ordinal": 3,
+          "name": "title",
+          "type": "text",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 4,
+          "name": "content",
+          "type": "text",
+          "not_null": true,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 5,
+          "name": "section",
+          "type": "text",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 6,
+          "name": "page_number",
+          "type": "integer",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": null
+        },
+        {
+          "ordinal": 7,
+          "name": "chunk_number",
+          "type": "integer",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": null
+        },
+        {
+          "ordinal": 8,
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "not_null": true,
+          "expression": "now()",
+          "identity": "",
+          "generated": "",
+          "collation": null
+        },
+        {
+          "ordinal": 9,
+          "name": "source_version",
+          "type": "text",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 10,
+          "name": "effective_date",
+          "type": "date",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": null
+        },
+        {
+          "ordinal": 11,
+          "name": "authority_level",
+          "type": "text",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        }
+      ]
+    },
+    {
+      "name": "knowledge_sources",
+      "schema": "public",
+      "kind": "r",
+      "owner": "postgres",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "persistence": "p",
+      "options": null,
+      "columns": [
+        {
+          "ordinal": 1,
+          "name": "id",
+          "type": "uuid",
+          "not_null": true,
+          "expression": "gen_random_uuid()",
+          "identity": "",
+          "generated": "",
+          "collation": null
+        },
+        {
+          "ordinal": 2,
+          "name": "title",
+          "type": "text",
+          "not_null": true,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 3,
+          "name": "organization",
+          "type": "text",
+          "not_null": true,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 4,
+          "name": "source_type",
+          "type": "text",
+          "not_null": true,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 5,
+          "name": "url",
+          "type": "text",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 6,
+          "name": "description",
+          "type": "text",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 7,
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "not_null": true,
+          "expression": "now()",
+          "identity": "",
+          "generated": "",
+          "collation": null
+        },
+        {
+          "ordinal": 8,
+          "name": "version",
+          "type": "text",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 9,
+          "name": "effective_date",
+          "type": "date",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": null
+        },
+        {
+          "ordinal": 10,
+          "name": "last_verified_at",
+          "type": "timestamp with time zone",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": null
+        },
+        {
+          "ordinal": 11,
+          "name": "chapter",
+          "type": "text",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 12,
+          "name": "topic",
+          "type": "text",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 13,
+          "name": "publication_date",
+          "type": "date",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": null
+        },
+        {
+          "ordinal": 14,
+          "name": "status",
+          "type": "text",
+          "not_null": false,
+          "expression": "'current'::text",
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        },
+        {
+          "ordinal": 15,
+          "name": "domain",
+          "type": "text",
+          "not_null": false,
+          "expression": null,
+          "identity": "",
+          "generated": "",
+          "collation": "\"default\""
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "table": "knowledge_chunks",
+      "name": "knowledge_chunks_pkey",
+      "type": "p",
+      "validated": true,
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table": "knowledge_chunks",
+      "name": "knowledge_chunks_source_id_fkey",
+      "type": "f",
+      "validated": true,
+      "definition": "FOREIGN KEY (source_id) REFERENCES knowledge_sources(id) ON DELETE CASCADE"
+    },
+    {
+      "table": "knowledge_sources",
+      "name": "knowledge_sources_pkey",
+      "type": "p",
+      "validated": true,
+      "definition": "PRIMARY KEY (id)"
+    }
+  ],
+  "indexes": [
+    {
+      "table": "knowledge_chunks",
+      "valid": true,
+      "ready": true,
+      "definition": "CREATE INDEX knowledge_chunks_content_idx ON public.knowledge_chunks USING gin (to_tsvector('english'::regconfig, content))"
+    },
+    {
+      "table": "knowledge_chunks",
+      "valid": true,
+      "ready": true,
+      "definition": "CREATE UNIQUE INDEX knowledge_chunks_pkey ON public.knowledge_chunks USING btree (id)"
+    },
+    {
+      "table": "knowledge_chunks",
+      "valid": true,
+      "ready": true,
+      "definition": "CREATE INDEX knowledge_chunks_source_id_idx ON public.knowledge_chunks USING btree (source_id)"
+    },
+    {
+      "table": "knowledge_sources",
+      "valid": true,
+      "ready": true,
+      "definition": "CREATE UNIQUE INDEX knowledge_sources_pkey ON public.knowledge_sources USING btree (id)"
+    }
+  ],
+  "user_triggers": [],
+  "rules": [],
+  "inheritance": [],
+  "internal_triggers": [
+    {
+      "table": "knowledge_chunks",
+      "name": "RI_ConstraintTrigger_c_17715",
+      "enabled": "O",
+      "function": "\"RI_FKey_check_ins\"()",
+      "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_17715\" AFTER INSERT ON knowledge_chunks FROM knowledge_sources NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_ins\"()"
+    },
+    {
+      "table": "knowledge_chunks",
+      "name": "RI_ConstraintTrigger_c_17716",
+      "enabled": "O",
+      "function": "\"RI_FKey_check_upd\"()",
+      "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_17716\" AFTER UPDATE ON knowledge_chunks FROM knowledge_sources NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_upd\"()"
+    },
+    {
+      "table": "knowledge_sources",
+      "name": "RI_ConstraintTrigger_a_17713",
+      "enabled": "O",
+      "function": "\"RI_FKey_cascade_del\"()",
+      "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_17713\" AFTER DELETE ON knowledge_sources FROM knowledge_chunks NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_cascade_del\"()"
+    },
+    {
+      "table": "knowledge_sources",
+      "name": "RI_ConstraintTrigger_a_17714",
+      "enabled": "O",
+      "function": "\"RI_FKey_noaction_upd\"()",
+      "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_17714\" AFTER UPDATE ON knowledge_sources FROM knowledge_chunks NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_upd\"()"
+    }
+  ],
+  "policies": [
+    {
+      "schemaname": "public",
+      "tablename": "knowledge_sources",
+      "policyname": "Authenticated users can read knowledge sources",
+      "permissive": "PERMISSIVE",
+      "roles": [
+        "authenticated"
+      ],
+      "cmd": "SELECT",
+      "qual": "true",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "knowledge_chunks",
+      "policyname": "Authenticated users can read knowledge chunks",
+      "permissive": "PERMISSIVE",
+      "roles": [
+        "authenticated"
+      ],
+      "cmd": "SELECT",
+      "qual": "true",
+      "with_check": null
+    }
+  ],
+  "table_acl_grouped": [
+    {
+      "table": "knowledge_chunks",
+      "grantee": "postgres",
+      "privileges": [
+        "DELETE",
+        "INSERT",
+        "MAINTAIN",
+        "REFERENCES",
+        "SELECT",
+        "TRIGGER",
+        "TRUNCATE",
+        "UPDATE"
+      ],
+      "grantable": false
+    },
+    {
+      "table": "knowledge_chunks",
+      "grantee": "anon",
+      "privileges": [
+        "DELETE",
+        "INSERT",
+        "MAINTAIN",
+        "REFERENCES",
+        "SELECT",
+        "TRIGGER",
+        "TRUNCATE",
+        "UPDATE"
+      ],
+      "grantable": false
+    },
+    {
+      "table": "knowledge_chunks",
+      "grantee": "authenticated",
+      "privileges": [
+        "DELETE",
+        "INSERT",
+        "MAINTAIN",
+        "REFERENCES",
+        "SELECT",
+        "TRIGGER",
+        "TRUNCATE",
+        "UPDATE"
+      ],
+      "grantable": false
+    },
+    {
+      "table": "knowledge_chunks",
+      "grantee": "service_role",
+      "privileges": [
+        "DELETE",
+        "INSERT",
+        "MAINTAIN",
+        "REFERENCES",
+        "SELECT",
+        "TRIGGER",
+        "TRUNCATE",
+        "UPDATE"
+      ],
+      "grantable": false
+    },
+    {
+      "table": "knowledge_sources",
+      "grantee": "postgres",
+      "privileges": [
+        "DELETE",
+        "INSERT",
+        "MAINTAIN",
+        "REFERENCES",
+        "SELECT",
+        "TRIGGER",
+        "TRUNCATE",
+        "UPDATE"
+      ],
+      "grantable": false
+    },
+    {
+      "table": "knowledge_sources",
+      "grantee": "anon",
+      "privileges": [
+        "DELETE",
+        "INSERT",
+        "MAINTAIN",
+        "REFERENCES",
+        "SELECT",
+        "TRIGGER",
+        "TRUNCATE",
+        "UPDATE"
+      ],
+      "grantable": false
+    },
+    {
+      "table": "knowledge_sources",
+      "grantee": "authenticated",
+      "privileges": [
+        "DELETE",
+        "INSERT",
+        "MAINTAIN",
+        "REFERENCES",
+        "SELECT",
+        "TRIGGER",
+        "TRUNCATE",
+        "UPDATE"
+      ],
+      "grantable": false
+    },
+    {
+      "table": "knowledge_sources",
+      "grantee": "service_role",
+      "privileges": [
+        "DELETE",
+        "INSERT",
+        "MAINTAIN",
+        "REFERENCES",
+        "SELECT",
+        "TRIGGER",
+        "TRUNCATE",
+        "UPDATE"
+      ],
+      "grantable": false
+    }
+  ],
+  "column_acl": [],
+  "function": {
+    "signature": "public.search_knowledge(text)",
+    "owner": "postgres",
+    "language": "sql",
+    "security_definer": true,
+    "volatility": "v",
+    "parallel": "u",
+    "strict": false,
+    "leakproof": false,
+    "settings": [
+      "search_path=public"
+    ],
+    "definition_file": "search_knowledge.sql",
+    "observed_overload_count": 1
+  },
+  "function_acl": [
+    {
+      "grantee": "PUBLIC",
+      "privilege": "EXECUTE",
+      "grantable": false
+    },
+    {
+      "grantee": "postgres",
+      "privilege": "EXECUTE",
+      "grantable": false
+    },
+    {
+      "grantee": "anon",
+      "privilege": "EXECUTE",
+      "grantable": false
+    },
+    {
+      "grantee": "authenticated",
+      "privilege": "EXECUTE",
+      "grantable": false
+    },
+    {
+      "grantee": "service_role",
+      "privilege": "EXECUTE",
+      "grantable": false
+    }
+  ],
+  "api_roles": [
+    {
+      "role": "authenticated",
+      "superuser": false,
+      "bypass_rls": false,
+      "schema_usage": true,
+      "schema_create": false,
+      "execute_search": true,
+      "select_sources": true,
+      "select_chunks": true
+    },
+    {
+      "role": "anon",
+      "superuser": false,
+      "bypass_rls": false,
+      "schema_usage": true,
+      "schema_create": false,
+      "execute_search": true,
+      "select_sources": true,
+      "select_chunks": true
+    },
+    {
+      "role": "service_role",
+      "superuser": false,
+      "bypass_rls": true,
+      "schema_usage": true,
+      "schema_create": false,
+      "execute_search": true,
+      "select_sources": true,
+      "select_chunks": true
+    },
+    {
+      "role": "postgres",
+      "superuser": false,
+      "bypass_rls": true,
+      "schema_usage": true,
+      "schema_create": true,
+      "execute_search": true,
+      "select_sources": true,
+      "select_chunks": true
+    }
+  ],
+  "public_schema_acl": [
+    {
+      "grantee": "pg_database_owner",
+      "privilege": "USAGE",
+      "grantable": false
+    },
+    {
+      "grantee": "pg_database_owner",
+      "privilege": "CREATE",
+      "grantable": false
+    },
+    {
+      "grantee": "PUBLIC",
+      "privilege": "USAGE",
+      "grantable": false
+    },
+    {
+      "grantee": "postgres",
+      "privilege": "USAGE",
+      "grantable": false
+    },
+    {
+      "grantee": "anon",
+      "privilege": "USAGE",
+      "grantable": false
+    },
+    {
+      "grantee": "authenticated",
+      "privilege": "USAGE",
+      "grantable": false
+    },
+    {
+      "grantee": "service_role",
+      "privilege": "USAGE",
+      "grantable": false
+    }
+  ],
+  "text_search": {
+    "session_default": "pg_catalog.english",
+    "index_configuration": {
+      "schema": "pg_catalog",
+      "name": "english",
+      "parser": "pg_catalog.default",
+      "dictionaries": [
+        "pg_catalog.english_stem",
+        "pg_catalog.simple"
+      ]
+    },
+    "generated_search_columns": [],
+    "search_function_uses_full_text": false
+  },
+  "function_dependencies": [
+    {
+      "type": "n",
+      "referenced_object": "schema public"
+    }
+  ],
+  "limitations": [
+    "Catalog export is scoped to the two knowledge tables and search function; not a full database/role dump.",
+    "Function body is an SQL string; catalog dependency entries alone do not enumerate its referenced tables or built-in functions.",
+    "Internal FK trigger names are instance-specific and must not be manually restored.",
+    "No application data was queried during catalog inspection; earlier corpus snapshot remains partial.",
+    "Migration/ingestion history and original authored CREATE TABLE scripts were not obtained."
+  ]
+}
