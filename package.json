@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "benchmark:fannie": "node scripts/research/benchmark.mjs",
+    "audit:fannie": "node scripts/research/audit-provenance.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
