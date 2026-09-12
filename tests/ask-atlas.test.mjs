@@ -14,7 +14,7 @@ let POST;
 let accessToken;
 let userClient;
 
-function loadRoute(clientFactory, environment = process.env) {
+function loadRoute(clientFactory, environment = process.env, runtime = {}) {
   const filename = fileURLToPath(new URL('../app/api/ask-atlas/route.ts', import.meta.url));
   const compiled = ts.transpileModule(readFileSync(filename, 'utf8'), {
     fileName: filename,
@@ -24,8 +24,8 @@ function loadRoute(clientFactory, environment = process.env) {
   const routeRequire = createRequire(filename);
   const dependencies = (name) => name === '@supabase/supabase-js' && clientFactory
     ? { createClient: clientFactory } : routeRequire(name);
-  compileFunction(compiled.outputText, ['require', 'module', 'exports', 'process'], { filename })(
-    dependencies, routeModule, routeModule.exports, { env: environment },
+  compileFunction(compiled.outputText, ['require', 'module', 'exports', 'process', 'fetch', 'console'], { filename })(
+    dependencies, routeModule, routeModule.exports, { env: environment }, runtime.fetch ?? fetch, runtime.console ?? console,
   );
   return routeModule.exports.POST;
 }
@@ -36,13 +36,14 @@ function request(authorization, body = JSON.stringify({ question: 'Fannie Mae ad
     method: 'POST', headers: { 'Content-Type': 'application/json', ...(authorization ? { Authorization: authorization } : {}) }, body,
   });
 }
-function isolatedRoute(verification, throws = false) {
+function isolatedRoute(verification, throws = false, options = {}) {
   const calls = { auth: 0, rpc: 0 };
-  const handler = loadRoute((url, key, options) => {
+  const handler = loadRoute((url, key, clientOptions) => {
     assert.equal(url, 'https://example.invalid');
     assert.equal(key, 'public-test-key');
-    assert.ok(options.global.headers.Authorization === `Bearer ${syntheticToken}`, 'user token forwarded');
-    assert.deepEqual(options.auth, { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false });
+    assert.ok(clientOptions.global.headers.Authorization === `Bearer ${syntheticToken}`, 'user token forwarded');
+    assert.deepEqual(clientOptions.auth, { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false });
+    if (options.inspectFetch) options.inspectFetch(clientOptions.global.fetch);
     return {
       auth: { getUser: async (token) => {
         calls.auth++;
@@ -54,11 +55,11 @@ function isolatedRoute(verification, throws = false) {
         calls.rpc++;
         assert.equal(calls.auth, 1, 'verification precedes retrieval');
         assert.equal(name, 'search_knowledge');
-        assert.equal(params.search_query, 'Fannie Mae adjustments');
-        return { data: [], error: null };
+        assert.equal(params.search_query, options.question ?? 'Fannie Mae adjustments');
+        return options.rpcResult ?? { data: [], error: null };
       },
     };
-  }, { NEXT_PUBLIC_SUPABASE_URL: 'https://example.invalid', NEXT_PUBLIC_SUPABASE_ANON_KEY: 'public-test-key', SUPABASE_SERVICE_ROLE_KEY: 'must-not-be-used' });
+  }, { NEXT_PUBLIC_SUPABASE_URL: 'https://example.invalid', NEXT_PUBLIC_SUPABASE_ANON_KEY: 'public-test-key', SUPABASE_SERVICE_ROLE_KEY: 'must-not-be-used' }, options.runtime);
   return { handler, calls };
 }
 const validUser = { data: { user: { id: 'test-user', role: 'authenticated', is_anonymous: false } }, error: null };
@@ -112,6 +113,108 @@ describe('Authentication security (isolated; no credentials or network)', () => 
     const { handler, calls } = isolatedRoute(validUser);
     assert.equal((await handler(request(`Bearer ${syntheticToken}`))).status, 200);
     assert.deepEqual(calls, { auth: 1, rpc: 1 });
+  });
+});
+
+describe('Gateway hardening (isolated; no credentials or network)', () => {
+  function streamRequest(chunks, headers = {}) {
+    return new Request('http://localhost/api/ask-atlas', {
+      method: 'POST', duplex: 'half',
+      headers: { Authorization: `Bearer ${syntheticToken}`, 'Content-Type': 'application/json', ...headers },
+      body: new ReadableStream({ start(controller) { for (const chunk of chunks) controller.enqueue(chunk); controller.close(); } }),
+    });
+  }
+  const bytes = (text) => new TextEncoder().encode(text);
+  for (const length of [2000, 2001]) {
+    test(`question boundary ${length}`, async () => {
+      const question = 'a'.repeat(length);
+      const { handler, calls } = isolatedRoute(validUser, false, { question });
+      const response = await handler(request(`Bearer ${syntheticToken}`, JSON.stringify({ question })));
+      assert.equal(response.status, length === 2000 ? 200 : 400);
+      assert.equal(calls.rpc, length === 2000 ? 1 : 0);
+    });
+  }
+  for (const length of [16384, 16385]) {
+    test(`streamed body byte boundary ${length} without Content-Length`, async () => {
+      const base = JSON.stringify({ question: 'Fannie Mae adjustments' });
+      const { handler, calls } = isolatedRoute(validUser);
+      const response = await handler(streamRequest([bytes(base), bytes(' '.repeat(length - base.length))]));
+      assert.equal(response.status, length === 16384 ? 200 : 400);
+      assert.equal(calls.rpc, length === 16384 ? 1 : 0);
+    });
+  }
+  test('actual streamed bytes override a false small Content-Length', async () => {
+    const { handler, calls } = isolatedRoute(validUser);
+    assert.equal((await handler(streamRequest([bytes(' '.repeat(16385))], { 'Content-Length': '1' }))).status, 400);
+    assert.equal(calls.rpc, 0);
+  });
+  for (const headers of [{ 'Content-Length': '16385' }, { 'Content-Length': '-1' }, { 'Content-Length': 'abc' }, { 'Content-Type': 'text/plain' }, { 'Content-Encoding': 'gzip' }]) {
+    test(`invalid body headers: ${JSON.stringify(headers)}`, async () => {
+      const { handler, calls } = isolatedRoute(validUser);
+      assert.equal((await handler(streamRequest([bytes('{"question":"Fannie Mae adjustments"}')], headers))).status, 400);
+      assert.equal(calls.rpc, 0);
+    });
+  }
+  for (const body of ['[]', '"text"', '{"question":null}', '{"question":true}', '{"question":{}}']) {
+    test(`rejects invalid JSON shape: ${body}`, async () => {
+      const { handler, calls } = isolatedRoute(validUser);
+      assert.equal((await handler(request(`Bearer ${syntheticToken}`, body))).status, 400);
+      assert.equal(calls.rpc, 0);
+    });
+  }
+  test('trims outer whitespace without changing Unicode or internal whitespace', async () => {
+    const question = 'Fannie Mae café\n  adjustments';
+    const { handler } = isolatedRoute(validUser, false, { question });
+    assert.equal((await handler(request(`Bearer ${syntheticToken}`, JSON.stringify({ question: ` \t${question}\r\n` })))).status, 200);
+  });
+  test('rejects invalid UTF-8', async () => {
+    const { handler, calls } = isolatedRoute(validUser);
+    assert.equal((await handler(streamRequest([new Uint8Array([0xff])]))).status, 400);
+    assert.equal(calls.rpc, 0);
+  });
+  test('multibyte UTF-8 may cross chunk boundaries', async () => {
+    const question = 'café'; const payload = bytes(JSON.stringify({ question }));
+    const split = payload.indexOf(0xc3) + 1;
+    const { handler } = isolatedRoute(validUser, false, { question });
+    assert.equal((await handler(streamRequest([payload.slice(0, split), payload.slice(split)]))).status, 200);
+  });
+  test('oversized auth header is rejected before verification', async () => {
+    const { handler, calls } = isolatedRoute(validUser);
+    assert.equal((await handler(request(`Bearer ${'a'.repeat(8192)}.b.c`))).status, 401);
+    assert.deepEqual(calls, { auth: 0, rpc: 0 });
+  });
+  test('body stream read errors return generic 400', async () => {
+    const { handler, calls } = isolatedRoute(validUser);
+    const body = new ReadableStream({ start(controller) { controller.error(new Error(syntheticToken)); } });
+    const response = await handler(new Request('http://localhost/api/ask-atlas', { method: 'POST', duplex: 'half', headers: { Authorization: `Bearer ${syntheticToken}`, 'Content-Type': 'application/json' }, body }));
+    assert.equal(response.status, 400); assert.equal(calls.rpc, 0);
+    assert.ok(!(await response.text()).includes(syntheticToken));
+  });
+  test('slow body is cancelled at the total read deadline', { timeout: 8000 }, async () => {
+    let cancelled = false;
+    const body = new ReadableStream({ cancel() { cancelled = true; } });
+    const { handler, calls } = isolatedRoute(validUser);
+    const response = await handler(new Request('http://localhost/api/ask-atlas', { method: 'POST', duplex: 'half', headers: { Authorization: `Bearer ${syntheticToken}`, 'Content-Type': 'application/json' }, body }));
+    assert.equal(response.status, 400); assert.equal(calls.rpc, 0); assert.ok(cancelled);
+  });
+  test('database errors never expose upstream details in response or logs', async () => {
+    const logs = [];
+    const { handler } = isolatedRoute(validUser, false, { rpcResult: { data: null, error: { message: syntheticToken } }, runtime: { console: { error: (...args) => logs.push(args) } } });
+    const response = await handler(request(`Bearer ${syntheticToken}`));
+    assert.equal(response.status, 500);
+    assert.ok(!JSON.stringify(logs).includes(syntheticToken));
+    assert.ok(!(await response.text()).includes(syntheticToken));
+  });
+  test('upstream transport uses deadline and rejects redirects; errors are sanitized', async () => {
+    let transport;
+    const { handler } = isolatedRoute(validUser, false, {
+      inspectFetch: (value) => { transport = value; },
+      runtime: { fetch: async (_input, init) => { assert.equal(init.redirect, 'error'); assert.ok(init.signal instanceof AbortSignal); throw new Error(syntheticToken); } },
+    });
+    await handler(request(`Bearer ${syntheticToken}`));
+    const response = await transport('https://example.invalid/auth/v1/user');
+    assert.equal(response.status, 503);
+    assert.ok(!(await response.text()).includes(syntheticToken));
   });
 });
 

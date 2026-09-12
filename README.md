@@ -57,14 +57,14 @@ Each case has a 45-second test timeout.
 Run just the isolated security checks (no account, configuration or network needed):
 
 ```sh
-node --test --test-name-pattern="Authentication security" tests/ask-atlas.test.mjs
+node --test --test-name-pattern="Authentication security|Gateway hardening" tests/ask-atlas.test.mjs
 ```
 
 Run all currently available checks without a live test account (public Supabase
 configuration and network access are needed for the public-access group):
 
 ```sh
-node --test --test-name-pattern="Authentication security|Public access integration" tests/ask-atlas.test.mjs
+node --test --test-name-pattern="Authentication security|Gateway hardening|Public access integration" tests/ask-atlas.test.mjs
 ```
 
 These filtered commands defer the eight authenticated Fannie regressions and the
@@ -82,6 +82,15 @@ Stage 2 application authentication uses the existing browser session's bearer
 token and server-side `getUser(token)` verification. The database REVOKE
 was executed with approval on 2026-09-11. See [Stage 2 access and rollout](docs/database/security/stage-2-access.md)
 and [executed SQL record](docs/database/security/stage-2-rpc-access.sql).
+
+The application gateway accepts JSON request bodies up to 16,384 bytes and
+questions up to 2,000 JavaScript UTF-16 code units before trimming. It preserves
+internal whitespace and Unicode, bounds body reading to 5 seconds and Supabase
+transport to 10 seconds, and rejects bearer headers longer than 8,192 characters.
+See [gateway hardening and launch limits](docs/database/security/gateway-hardening.md).
+Shared rate limiting is still required. A
+[backend-only access proposal](docs/database/security/backend-only-proposal.md)
+is documentation only; its SQL has NOT been executed and its backend is NOT enabled.
 
 Add questions to `tests/ask-atlas.cases.mjs`. Entries define `question`, `topic`,
 `category`, `section`, `authority`, and `confidence`; the current list defaults
