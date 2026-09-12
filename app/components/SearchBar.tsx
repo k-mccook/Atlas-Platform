@@ -169,18 +169,13 @@ export default function SearchBar() {
   const uniqueSources = (result?.sources ?? []).filter(
     (source, index, sources) => {
       const sourceKey =
-        source.source_id ||
-        source.source_title ||
-        source.source_url ||
-        `source-${index}`;
+        `${source.source_id ?? source.source_title ?? source.source_url ?? index}|${source.section ?? ""}`;
+      // Keep each cited section accessible, including sections of the same guide.
 
       return (
         sources.findIndex(
           (item, itemIndex) =>
-            (item.source_id ||
-              item.source_title ||
-              item.source_url ||
-              `source-${itemIndex}`) === sourceKey
+            `${item.source_id ?? item.source_title ?? item.source_url ?? itemIndex}|${item.section ?? ""}` === sourceKey
         ) === index
       );
     }

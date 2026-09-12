@@ -1,14 +1,13 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
-import { compileFunction } from 'node:vm';
 import { before, describe, test } from 'node:test';
 import { authorities, cases } from './ask-atlas.cases.mjs';
+import { loadTypescript } from './load-typescript.mjs';
+import { evidence, factualChecks } from './fixtures/fannie-evidence.mjs';
 
 const require = createRequire(import.meta.url);
 const { loadEnvConfig } = require('@next/env');
-const ts = require('typescript');
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 let POST;
 let accessToken;
@@ -16,18 +15,7 @@ let userClient;
 
 function loadRoute(clientFactory, environment = process.env, runtime = {}) {
   const filename = fileURLToPath(new URL('../app/api/ask-atlas/route.ts', import.meta.url));
-  const compiled = ts.transpileModule(readFileSync(filename, 'utf8'), {
-    fileName: filename,
-    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true },
-  });
-  const routeModule = { exports: {} };
-  const routeRequire = createRequire(filename);
-  const dependencies = (name) => name === '@supabase/supabase-js' && clientFactory
-    ? { createClient: clientFactory } : routeRequire(name);
-  compileFunction(compiled.outputText, ['require', 'module', 'exports', 'process', 'fetch', 'console'], { filename })(
-    dependencies, routeModule, routeModule.exports, { env: environment }, runtime.fetch ?? fetch, runtime.console ?? console,
-  );
-  return routeModule.exports.POST;
+  return loadTypescript(filename, clientFactory ? { '@supabase/supabase-js': { createClient: clientFactory } } : {}, environment, runtime).POST;
 }
 
 const syntheticToken = 'test.user.signature'; // Inert test input, never a real credential.
@@ -218,8 +206,12 @@ describe('Gateway hardening (isolated; no credentials or network)', () => {
   });
 });
 
+loadEnvConfig(projectRoot, true);
+const authDeferred = !process.env.ATLAS_TEST_EMAIL && !process.env.ATLAS_TEST_PASSWORD
+  ? 'Deferred: no approved test-account credentials' : false;
 describe('Authenticated live integration', () => {
 before(async () => {
+  if (authDeferred) return;
   // Match next dev environment loading without printing credentials.
   loadEnvConfig(projectRoot, true);
   assert.ok(process.env.NEXT_PUBLIC_SUPABASE_URL, 'Missing NEXT_PUBLIC_SUPABASE_URL; configure .env.local.');
@@ -243,7 +235,7 @@ before(async () => {
 });
 
 for (const entry of cases) {
-  test(`${entry.authority}: ${entry.question}`, { timeout: 45_000 }, async () => {
+  test(`${entry.authority}: ${entry.question}`, { timeout: 45_000, skip: authDeferred }, async () => {
     const response = await POST(new Request('http://localhost/api/ask-atlas', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${accessToken}` },
@@ -256,6 +248,11 @@ for (const entry of cases) {
     assert.equal(result.primary_section, entry.section, 'primary section');
     assert.equal(result.target_source, entry.authority, 'target authority');
     assert.equal(result.confidence, entry.confidence, 'confidence');
+    for (const check of factualChecks[entry.topic] ?? []) assert.match(result.answer, check);
+    for (const part of result.answer_parts) {
+      const source = result.sources.find(source => source.chunk_id === part.chunk_id);
+      assert.equal(source.content.slice(part.start, part.end), part.text);
+    }
     assert.equal(typeof result.answer, 'string', 'answer must be text');
     assert.ok(result.answer.trim(), 'answer must not be empty');
     assert.doesNotMatch(result.answer, /did not find enough relevant authoritative guidance/i);
@@ -276,7 +273,7 @@ for (const entry of cases) {
   });
 }
 
-test('authenticated direct RPC remains available', async () => {
+test('authenticated direct RPC remains available', { skip: authDeferred }, async () => {
   const { data, error } = await userClient.rpc('search_knowledge', { search_query: cases[0].question });
   assert.ok(!error && Array.isArray(data) && data.length > 0, 'Authenticated RPC must return evidence');
 });
@@ -308,4 +305,25 @@ test('direct anon RPC matches the explicitly selected rollout stage', { timeout:
     assert.ok(!error && Array.isArray(data) && data.length > 0, 'Pre-revoke RPC still publicly executable');
   }
 });
+});
+
+describe('Evidence grounding', () => {
+  for (const entry of cases) test(entry.topic + ' preserves facts and cites exact evidence', async () => {
+    const { handler } = isolatedRoute(validUser, false, { question: entry.question, rpcResult: { data: evidence, error: null } });
+    const response = await handler(request('Bearer ' + syntheticToken, JSON.stringify({ question: entry.question })));
+    assert.equal(response.status, 200);
+    const result = await response.json();
+    assert.equal(result.topic, entry.topic);
+    assert.equal(result.category, entry.category);
+    assert.equal(result.primary_section, entry.section);
+    assert.equal(result.confidence, entry.confidence);
+    for (const check of factualChecks[entry.topic]) assert.match(result.answer, check);
+    assert.doesNotMatch(result.answer, /specific maximum mileage|face amount|face value/i);
+    assert.ok(result.answer_parts.length > 0);
+    for (const part of result.answer_parts) {
+      const source = result.sources.find(source => source.chunk_id === part.chunk_id);
+      assert.equal(source.content.slice(part.start, part.end), part.text);
+      assert.ok(result.answer.includes(part.text));
+    }
+  });
 });

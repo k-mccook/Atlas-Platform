@@ -23,14 +23,17 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 ## Ask Atlas regression tests
 
 Run `npm test` for the complete security and authenticated regression suite,
-including all eight validated Fannie Mae questions.
+including all eight validated Fannie Mae questions against stored evidence fixtures.
+The nine live authenticated checks are explicitly marked deferred if no approved
+test-account credentials are available; all other available checks still run.
 No running dashboard, new packages, paid testing service, or OpenAI credits are
 required. Use Node 20 or newer (validated locally with Node 24).
 
 These integration tests call the real `app/api/ask-atlas/route.ts` POST handler
 with a Web Request and query the configured Supabase `search_knowledge` function.
 Node's built-in test runner and the installed TypeScript compiler load the route
-in memory. Production files and dependencies are not rewritten or mocked.
+in memory. Production files are not rewritten. Isolated tests inject a Supabase client and
+stored evidence fixtures; live tests use the installed client and real database.
 No knowledge-data writes, SQL permission changes or user creation are performed
 by the tests. Live authenticated tests sign in normally to Supabase Auth, which
 can create normal session/audit records. Isolated security tests substitute only
@@ -44,8 +47,9 @@ existing test account in ignored local configuration or CI secrets. Never commit
 or print those values or access tokens. Do not create an account or add credentials
 without approval. Test session tokens stay in memory, with persistence and refresh
 disabled. Environment files remain ignored by Git. Network access and the existing
-knowledge-base records are required. Missing configuration or retrieval failures
-fail rather than silently skip.
+knowledge-base records are required. Missing public configuration, partially configured test credentials, and retrieval
+failures fail. Only the complete absence of test-account credentials defers the
+nine authenticated checks, with an explicit reason on each test.
 The current handler does not use the OpenAI key.
 
 Each question checks status, topic, category, authority, confidence, primary
@@ -64,10 +68,10 @@ Run all currently available checks without a live test account (public Supabase
 configuration and network access are needed for the public-access group):
 
 ```sh
-node --test --test-name-pattern="Authentication security|Gateway hardening|Public access integration" tests/ask-atlas.test.mjs
+npm test
 ```
 
-These filtered commands defer the eight authenticated Fannie regressions and the
+Without approved test credentials these commands defer the eight authenticated Fannie regressions and the
 direct authenticated RPC check. They do not prove those nine checks pass. Those
 tests are currently deferred by user instruction; no test credentials were added.
 
@@ -98,13 +102,16 @@ the last two to Fannie Mae and High. Add an official hostname to `authorities`
 for another authority. Extend the URL assertion if its section URL convention
 differs from the current path-segment convention.
 
-These tests cover API/retrieval behavior against the live knowledge base, not
-browser rendering, guideline accuracy, or exact answer wording. Database changes
-can cause legitimate failures; investigate before changing expectations.
-The in-memory loader supports the current route's package imports. Future local
-TypeScript imports or Next request-context APIs may require extending the loader
-or testing through a running server. Run `npm run build` separately for Next.js
+The tests cover security, evidence selection, factual passages, citation offsets,
+authority restrictions, conflicts, and confidence. Live tests also check the current
+knowledge base. They do not independently certify publisher accuracy. Database
+changes can cause legitimate failures; investigate before changing expectations.
+The in-memory loader supports package imports and relative local TypeScript modules.
+Next request-context APIs may still require testing through a running server. Run `npm run build` separately for Next.js
 compilation and TypeScript validation.
+
+See [Research Engine V2](docs/research-engine-v2.md) for architecture, grounding
+limits, test coverage, and remaining work. No database behavior or content changed.
 
 ## Learn More
 
