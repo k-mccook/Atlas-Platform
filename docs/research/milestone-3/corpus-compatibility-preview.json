@@ -1,0 +1,191 @@
+{
+  "state": "UNEXECUTED CORPUS — OFFLINE COMPATIBILITY PROBE",
+  "note": "No post-expansion quality score is claimed. Legacy benchmark factual regexes are paraphrase-specific; publisher-native expectations and runtime adaptations must be reviewed before activation.",
+  "original_eight_contracts_passed": 0,
+  "results": [
+    {
+      "topic": "adjustments",
+      "actual_topic": "adjustments",
+      "expected_section": "B4-1.3-09",
+      "actual_section": "B4-1.3-09",
+      "expected_confidence": "High",
+      "actual_confidence": "Medium",
+      "abstained": false,
+      "current_contract_passes": false,
+      "coverage": {
+        "requested": [
+          "adjustments"
+        ],
+        "supported": [
+          "adjustments"
+        ],
+        "complete": true
+      },
+      "reasons": [
+        "Direct passages cover each recognized concept.",
+        "Evidence is labeled authoritative in the corpus; publisher provenance is not independently verified."
+      ]
+    },
+    {
+      "topic": "distance",
+      "actual_topic": "distance",
+      "expected_section": "B4-1.3-08",
+      "actual_section": "B4-1.3-08",
+      "expected_confidence": "High",
+      "actual_confidence": "Medium",
+      "abstained": false,
+      "current_contract_passes": false,
+      "coverage": {
+        "requested": [
+          "distance"
+        ],
+        "supported": [
+          "distance"
+        ],
+        "complete": true
+      },
+      "reasons": [
+        "Direct passages cover each recognized concept.",
+        "Evidence is labeled authoritative in the corpus; publisher provenance is not independently verified."
+      ]
+    },
+    {
+      "topic": "older_comparables",
+      "actual_topic": "older_comparables",
+      "expected_section": "B4-1.3-08",
+      "actual_section": "B4-1.3-08",
+      "expected_confidence": "High",
+      "actual_confidence": "Medium",
+      "abstained": false,
+      "current_contract_passes": false,
+      "coverage": {
+        "requested": [
+          "older_comparables"
+        ],
+        "supported": [
+          "older_comparables"
+        ],
+        "complete": true
+      },
+      "reasons": [
+        "Direct passages cover each recognized concept.",
+        "Evidence is labeled authoritative in the corpus; publisher provenance is not independently verified."
+      ]
+    },
+    {
+      "topic": "rural_comparables",
+      "actual_topic": "rural_comparables",
+      "expected_section": "B4-1.3-08",
+      "actual_section": "B4-1.3-08",
+      "expected_confidence": "High",
+      "actual_confidence": "Medium",
+      "abstained": false,
+      "current_contract_passes": false,
+      "coverage": {
+        "requested": [
+          "rural_comparables"
+        ],
+        "supported": [
+          "rural_comparables"
+        ],
+        "complete": true
+      },
+      "reasons": [
+        "Direct passages cover each recognized concept.",
+        "Evidence is labeled authoritative in the corpus; publisher provenance is not independently verified."
+      ]
+    },
+    {
+      "topic": "market_area",
+      "actual_topic": "market_area",
+      "expected_section": "B4-1.3-08",
+      "actual_section": "B4-1.3-08",
+      "expected_confidence": "High",
+      "actual_confidence": "Medium",
+      "abstained": false,
+      "current_contract_passes": false,
+      "coverage": {
+        "requested": [
+          "market_area"
+        ],
+        "supported": [
+          "market_area"
+        ],
+        "complete": true
+      },
+      "reasons": [
+        "Direct passages cover each recognized concept.",
+        "Evidence is labeled authoritative in the corpus; publisher provenance is not independently verified."
+      ]
+    },
+    {
+      "topic": "verification",
+      "actual_topic": "verification",
+      "expected_section": "B4-1.3-07",
+      "actual_section": "B4-1.3-07",
+      "expected_confidence": "High",
+      "actual_confidence": "Medium",
+      "abstained": false,
+      "current_contract_passes": false,
+      "coverage": {
+        "requested": [
+          "verification"
+        ],
+        "supported": [
+          "verification"
+        ],
+        "complete": true
+      },
+      "reasons": [
+        "Direct passages cover each recognized concept.",
+        "Evidence is labeled authoritative in the corpus; publisher provenance is not independently verified."
+      ]
+    },
+    {
+      "topic": "listings_contracts",
+      "actual_topic": "listings_contracts",
+      "expected_section": "B4-1.3-08",
+      "actual_section": "B4-1.3-08",
+      "expected_confidence": "High",
+      "actual_confidence": "Medium",
+      "abstained": false,
+      "current_contract_passes": false,
+      "coverage": {
+        "requested": [
+          "listings_contracts"
+        ],
+        "supported": [
+          "listings_contracts"
+        ],
+        "complete": true
+      },
+      "reasons": [
+        "Direct passages cover each recognized concept.",
+        "Evidence is labeled authoritative in the corpus; publisher provenance is not independently verified."
+      ]
+    },
+    {
+      "topic": "concessions",
+      "actual_topic": "concessions",
+      "expected_section": "B4-1.3-09",
+      "actual_section": "B4-1.3-09",
+      "expected_confidence": "High",
+      "actual_confidence": "Medium",
+      "abstained": false,
+      "current_contract_passes": false,
+      "coverage": {
+        "requested": [
+          "concessions"
+        ],
+        "supported": [
+          "concessions"
+        ],
+        "complete": true
+      },
+      "reasons": [
+        "Direct passages cover each recognized concept.",
+        "Evidence is labeled authoritative in the corpus; publisher provenance is not independently verified."
+      ]
+    }
+  ]
+}

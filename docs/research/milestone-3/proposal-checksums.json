@@ -1,0 +1,12 @@
+{
+  "benchmark-baseline.json": "d0acec9765c5b132b1f68bac104cb2a01f57146e84cd582dc0dc9105c8692a6c",
+  "corpus-compatibility-preview.json": "9371385d7a2fcdc4437c43b075427569e1e262278dc85c242e075f5f4bf34d20",
+  "corpus-plan.json": "d869e7a7d9689b798511ff1a646fcb17fe38d69fa7e7bceb1e2653a977f30977",
+  "proposed-corpus-activate.sql": "2931154dc8f8c58303ce2b86dfcacce8144a004c6c1cb2dd8ef68a03380f78fd",
+  "proposed-corpus-load.sql": "2710058bed99116f598c82f41cc6f76a0d79b553628be4027a5d67ab30d9fa76",
+  "proposed-corpus-rollback.sql": "85475dae97af421a3ee81bd8608da2b8d67550ec092ab1f4ec74711391bac036",
+  "proposed-corpus-verify_activate.sql": "f42979633824b5f8286fab1391223ed997cdb780407e69a1136bb74484c17a5b",
+  "proposed-corpus-verify_load.sql": "f15a021fa40c3e776923638e48fc3a53b0d79d48a0b78a2ec8ed0ba823491694",
+  "provenance-audit.json": "6eb4577f347a2f2a1d5b478b0386061f05f79ef520173a2abb76fadfac135f9d",
+  "publisher-capture.json": "fc00fd98e0fc500d6706b8c813b1b862995b31d7b1506c33fcb8dfa6e0476191"
+}

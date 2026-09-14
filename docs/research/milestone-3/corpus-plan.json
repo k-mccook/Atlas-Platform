@@ -1,0 +1,529 @@
+{
+  "state": "UNEXECUTED",
+  "sources": [
+    {
+      "id": "d8d4135c-ebb0-a85a-e945-57fecad637fb",
+      "section": "B4-1.3-03",
+      "url": "https://selling-guide.fanniemae.com/sel/b4-1.3-03/neighborhood-section-appraisal-report"
+    },
+    {
+      "id": "c9342f90-4955-0f31-d4e8-7e6e9c19d03e",
+      "section": "B4-1.3-04",
+      "url": "https://selling-guide.fanniemae.com/sel/b4-1.3-04/site-section-appraisal-report"
+    },
+    {
+      "id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "url": "https://selling-guide.fanniemae.com/sel/b4-1.3-05/improvements-section-appraisal-report"
+    },
+    {
+      "id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "url": "https://selling-guide.fanniemae.com/sel/b4-1.3-06/property-condition-and-quality-construction-improvements"
+    },
+    {
+      "id": "7129b5e0-7066-50fa-1b60-10d84ac0cfc1",
+      "section": "B4-1.3-07",
+      "url": "https://selling-guide.fanniemae.com/sel/b4-1.3-07/sales-comparison-approach-section-appraisal-report"
+    },
+    {
+      "id": "d52fbd0f-5332-bd27-d80f-273617ef1ff5",
+      "section": "B4-1.3-08",
+      "url": "https://selling-guide.fanniemae.com/sel/b4-1.3-08/comparable-sales"
+    },
+    {
+      "id": "4bc5728a-21ce-fad4-c0d2-615a9c00c43b",
+      "section": "B4-1.3-09",
+      "url": "https://selling-guide.fanniemae.com/sel/b4-1.3-09/adjustments-comparable-sales"
+    },
+    {
+      "id": "f4c72547-0ece-83da-63b3-828558cfe068",
+      "section": "B4-1.3-11",
+      "url": "https://selling-guide.fanniemae.com/sel/b4-1.3-11/valuation-analysis-and-reconciliation"
+    },
+    {
+      "id": "4b3a8e18-9f2f-cd7e-bce1-309338405146",
+      "section": "B4-1.2-01",
+      "url": "https://selling-guide.fanniemae.com/sel/b4-1.2-01/appraisal-report-forms-and-exhibits"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "9986af6d-fa90-7f8d-ad7c-06d048b31894",
+      "source_id": "d8d4135c-ebb0-a85a-e945-57fecad637fb",
+      "section": "B4-1.3-03",
+      "title": "Overview",
+      "content_sha256": "b82245f265b1ce53e9467d32a28dccfe169c5b82356709b5346d9b7a613ac87c"
+    },
+    {
+      "id": "6f55af76-090a-6cac-bed8-5101eb19ddd9",
+      "source_id": "d8d4135c-ebb0-a85a-e945-57fecad637fb",
+      "section": "B4-1.3-03",
+      "title": "Neighborhood Analysis",
+      "content_sha256": "b71581ec6b812ec043ef6094329906be30bfcd88bc4dfce14ce39399b5c9c56e"
+    },
+    {
+      "id": "b56986ff-9a72-74d2-0277-656183b4c757",
+      "source_id": "d8d4135c-ebb0-a85a-e945-57fecad637fb",
+      "section": "B4-1.3-03",
+      "title": "Degree of Development and Growth Rate",
+      "content_sha256": "0aa308b949a7a8141961f4c62c66b0af1a4293dff42bd11d8e86db4dc6dd5d1b"
+    },
+    {
+      "id": "322ed6ea-a62c-4f12-6ab0-8d6748b51d48",
+      "source_id": "d8d4135c-ebb0-a85a-e945-57fecad637fb",
+      "section": "B4-1.3-03",
+      "title": "Trend of Neighborhood Property Values, Demand/Supply, and Marketing Time",
+      "content_sha256": "846eee5cbba5efc34a4a389434e5b01b047f448ba7b63d67cc9c05a180a37597"
+    },
+    {
+      "id": "d9b91870-5813-3090-a8bf-a71032a6c938",
+      "source_id": "d8d4135c-ebb0-a85a-e945-57fecad637fb",
+      "section": "B4-1.3-03",
+      "title": "Price Range and Predominant Price",
+      "content_sha256": "fb0e70894244d480f3684e47dabf4ca3c6e8d5fbcea96e00074322dce7412141"
+    },
+    {
+      "id": "5a4683af-211e-f11e-c4e2-a590def4590f",
+      "source_id": "d8d4135c-ebb0-a85a-e945-57fecad637fb",
+      "section": "B4-1.3-03",
+      "title": "Over-Improvements",
+      "content_sha256": "e4c6b983e633d459c7c8718921caa8d0e2665fc56e32fd5ace034cd862bd2c40"
+    },
+    {
+      "id": "ff3fc974-2afe-4300-ad0c-a1eb3cc1c915",
+      "source_id": "d8d4135c-ebb0-a85a-e945-57fecad637fb",
+      "section": "B4-1.3-03",
+      "title": "Age Range and Predominant Age",
+      "content_sha256": "e49d45417473eb6c6e6d5ea5812d65052859646715ed2523802240fc02d7faac"
+    },
+    {
+      "id": "9458d699-875e-1b5f-290a-c5be10b85f59",
+      "source_id": "d8d4135c-ebb0-a85a-e945-57fecad637fb",
+      "section": "B4-1.3-03",
+      "title": "Present Land Use",
+      "content_sha256": "d13454fccb1f59c7654a3b51547a2aec10fb86ce48cad339952c86c1466910f1"
+    },
+    {
+      "id": "48cd619f-7ac4-f8e6-3726-cfb22a70d8c3",
+      "source_id": "d8d4135c-ebb0-a85a-e945-57fecad637fb",
+      "section": "B4-1.3-03",
+      "title": "Uniform Appraisal Dataset (UAD) 3.6 Policy",
+      "content_sha256": "3d363b3e42b55e1b22f55e6bf2fefb8cad99e49554d2e94fe5b699dc01d9cdeb"
+    },
+    {
+      "id": "c9d16227-69e6-c45f-9d21-72853dee03da",
+      "source_id": "c9342f90-4955-0f31-d4e8-7e6e9c19d03e",
+      "section": "B4-1.3-04",
+      "title": "Overview",
+      "content_sha256": "faca7f5bec8211f50dcc94c33099f342bcd5eaad48d4251c041f7712ca417040"
+    },
+    {
+      "id": "29b3c882-c0bf-e9b1-fd1c-800f8f5e711e",
+      "source_id": "c9342f90-4955-0f31-d4e8-7e6e9c19d03e",
+      "section": "B4-1.3-04",
+      "title": "Site Analysis",
+      "content_sha256": "b9ed4aec512c83eeb6829fc8d497b8930ac0881ec836f83d90290eb4fbde67d4"
+    },
+    {
+      "id": "fe3309ad-85ba-f81e-67e0-07b4a98a1f55",
+      "source_id": "c9342f90-4955-0f31-d4e8-7e6e9c19d03e",
+      "section": "B4-1.3-04",
+      "title": "Subject Property Zoning",
+      "content_sha256": "92098a2478e10f8413866a21318cc9573c531ad0ca86b7f6e710eaa8292bc97b"
+    },
+    {
+      "id": "680cd93f-c151-555a-f364-9e48246562bf",
+      "source_id": "c9342f90-4955-0f31-d4e8-7e6e9c19d03e",
+      "section": "B4-1.3-04",
+      "title": "Highest and Best Use",
+      "content_sha256": "451bc51034a7707f199e7c2385e31b741acb4d1d88c08e1c7cb3fcd682d24b76"
+    },
+    {
+      "id": "6cc70f68-7cf2-4816-a5a6-4337a16fd5ff",
+      "source_id": "c9342f90-4955-0f31-d4e8-7e6e9c19d03e",
+      "section": "B4-1.3-04",
+      "title": "Adjoining Properties",
+      "content_sha256": "d1d5eab57dd8ac7d3191513f0051308555cd12d399aa06a5c663e7bd3fdd9ab1"
+    },
+    {
+      "id": "ebca6ace-1326-d713-1eb4-8bced4a8ec0d",
+      "source_id": "c9342f90-4955-0f31-d4e8-7e6e9c19d03e",
+      "section": "B4-1.3-04",
+      "title": "Site Utilities",
+      "content_sha256": "6b173f63cc86d6aa47f39d3e51c40909af0f3f1136508fcd09a804c043ef9246"
+    },
+    {
+      "id": "2bd00768-875e-fc12-394e-663a4061d3dd",
+      "source_id": "c9342f90-4955-0f31-d4e8-7e6e9c19d03e",
+      "section": "B4-1.3-04",
+      "title": "Off-Site Improvements",
+      "content_sha256": "b555ab8128049905b2b5cbf5e4b5fc03f38eae2b3c9bfbd48c08e8f12ff9a16c"
+    },
+    {
+      "id": "ddb9e27c-d5e5-9e81-77a5-f3f183bf1d1d",
+      "source_id": "c9342f90-4955-0f31-d4e8-7e6e9c19d03e",
+      "section": "B4-1.3-04",
+      "title": "Community-Owned or Privately Maintained Streets",
+      "content_sha256": "9840298e156c83ff0f3884402c0aadf2e014297b4f3b059a173b5fdec27a7f4b"
+    },
+    {
+      "id": "ce1e0a6e-0fcf-851a-2ae2-e4a95f0e47f6",
+      "source_id": "c9342f90-4955-0f31-d4e8-7e6e9c19d03e",
+      "section": "B4-1.3-04",
+      "title": "Special Flood Hazard Areas",
+      "content_sha256": "61254031ab81a79f119099ed394365ce3b356422ae4b4b462f6ad5a22a7410a5"
+    },
+    {
+      "id": "ae433b4f-bed5-7389-8e39-2cfa6ac83c31",
+      "source_id": "c9342f90-4955-0f31-d4e8-7e6e9c19d03e",
+      "section": "B4-1.3-04",
+      "title": "Uniform Appraisal Dataset (UAD) 3.6 Policy",
+      "content_sha256": "3d363b3e42b55e1b22f55e6bf2fefb8cad99e49554d2e94fe5b699dc01d9cdeb"
+    },
+    {
+      "id": "fdecfe66-9873-30ca-7c75-102db62b6bff",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Overview",
+      "content_sha256": "f58433feaa49b53914c88fc9499535fbc8db1ecc10079f824f02341935461959"
+    },
+    {
+      "id": "19e0e797-d715-2ec8-766b-4ead2b036ddf",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Conformity of Improvements to Neighborhood",
+      "content_sha256": "975d6d7b9bce2a4240e8c6c3ce59e6faf644882b25750bb422a528fcf74513d7"
+    },
+    {
+      "id": "1f69874f-d3af-60a0-6c8a-2d5f52e60693",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Unique Housing Types",
+      "content_sha256": "9dbc57d777b48ba4d9d4c3f0b434890c9452c5a7334065bd1941f5bde38b0ffc"
+    },
+    {
+      "id": "14c3b346-b041-fc7e-fd59-7c7dba459958",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Actual and Effective Ages",
+      "content_sha256": "21b3a6689141bd7e582bbb22bfefb6ddd6083b8351ac778cc46bdc31f99e2ce8"
+    },
+    {
+      "id": "12c3187b-f610-75cf-dcdd-1623bd57e392",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Remaining Economic Life",
+      "content_sha256": "4a32c02ae6cced293e4384efd848719a251fd77d85597786f442e2c1072bb64a"
+    },
+    {
+      "id": "d6f5d82e-f109-9dd8-4562-a66873d26afa",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Energy Efficient Improvements",
+      "content_sha256": "8d56ecfef9436cee9c9058ade5162688fce3b6e2faa4edc028d91bc3999eddbf"
+    },
+    {
+      "id": "0c0d55ff-e34b-3f38-8cf8-4b513430958b",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Layout and Floor Plans",
+      "content_sha256": "bed2460d1ca3c7cedf3758149776ee393c7ca81771936cd0711c9e33cbba2df7"
+    },
+    {
+      "id": "08dbdc08-f970-1b3d-6c85-45a5e2bfcc22",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Above- and Below-Grade Area(s)",
+      "content_sha256": "757f06af98e2fab85a70b594a9b036c142ab954c46de79cc1190f10587f1653f"
+    },
+    {
+      "id": "95cfc08c-4c23-7638-d82a-ecd7a5c15e2a",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Gross Building Area",
+      "content_sha256": "e4668520f6f6bd05723d48c057d6435f72b8ad865ae67af01a6482bdcef15aae"
+    },
+    {
+      "id": "40c2ce58-5e84-ca13-935d-fb9698247d02",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Accessory Dwelling Units",
+      "content_sha256": "5084ba5cbad37c2015ef112a2e7a5f764e05fbc5f77ff634b4db5262b11844ac"
+    },
+    {
+      "id": "a55cd9ef-0752-7789-d3e2-9baf6a689c2f",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Additions without Permits",
+      "content_sha256": "ff19ce7ac04a8e46609b4e6ca3bdea86c711b095d804ebd1f9aa34e71f71a806"
+    },
+    {
+      "id": "601e46da-d20a-70f5-5ab9-6049e05856ef",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Properties with Outbuildings",
+      "content_sha256": "0278d3fae2c75922ca75f75629ed451aaa6c9a8ea88c13f66382fa8011b23a4b"
+    },
+    {
+      "id": "2ef6c2fb-180c-b15a-ce7f-d76a6c308b8d",
+      "source_id": "54dcb2e9-4d49-cef1-60b6-cbb53a8e3fea",
+      "section": "B4-1.3-05",
+      "title": "Uniform Appraisal Dataset (UAD) 3.6 Policy",
+      "content_sha256": "3d363b3e42b55e1b22f55e6bf2fefb8cad99e49554d2e94fe5b699dc01d9cdeb"
+    },
+    {
+      "id": "f37cd0d9-3a74-b959-9583-cba6b154adff",
+      "source_id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "title": "Appraiser Selection of Condition, Quality, and other Characteristic Ratings",
+      "content_sha256": "1878c089088deec5291317c844116f48a64a59ead507cf087c64a3bcfa4923c9"
+    },
+    {
+      "id": "61685c2c-7b05-b83f-a0e2-1cd75ff618d5",
+      "source_id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "title": "Property Condition",
+      "content_sha256": "041a890782a3fcbf7b088799decd46d1fbfa353dff13063179e461eb8f59b5aa"
+    },
+    {
+      "id": "ae154540-d87f-64b2-4d3c-3a462d2a7403",
+      "source_id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "title": "Property Condition Ratings",
+      "content_sha256": "dc17442ac4bf6678c0444b64480df761e70095b6a6b9a3f31027a150e3601d60"
+    },
+    {
+      "id": "fc8645ff-322f-a922-5131-61295e0ef983",
+      "source_id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "title": "Identifying Property Condition",
+      "content_sha256": "df2312b54febcf436ae6969f742dc0dc2bb2ac468e9bdae60a11b04bbbca91e0"
+    },
+    {
+      "id": "560c181f-c7b7-738c-6307-357ddb15179f",
+      "source_id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "title": "Definitions of Not Updated, Updated, and Remodeled",
+      "content_sha256": "18854baf1d7b1be76b0d413b4de480420e377d60765572954897a34282fea91a"
+    },
+    {
+      "id": "d0a65bf4-1e9b-52a2-3e9b-ebaf30cede40",
+      "source_id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "title": "Appraisals Completed “As Is”",
+      "content_sha256": "2337fa7f1beece88f07834daa4e12c53d1ef96ed6091057efcd4854835f27159"
+    },
+    {
+      "id": "5b2699a2-883d-a825-7c10-a665f798a75b",
+      "source_id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "title": "Quality of Construction Rating",
+      "content_sha256": "c64640b14f54ebd3c16c51b0cfa04e3ee13e9c01aa5784b3969c6bd5f47ca24d"
+    },
+    {
+      "id": "93f46d9e-b549-3ca6-f6f0-14d553b1254d",
+      "source_id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "title": "Identifying Quality of Construction",
+      "content_sha256": "36590e7b5a4da58dc78222b01954ccd8a19185c21add87556e6fbbce127986f4"
+    },
+    {
+      "id": "fc03055c-5393-d480-5b0a-924fd8f14da0",
+      "source_id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "title": "Physical Deficiencies That Affect Safety, Soundness, or Structural Integrity of the Subject Property",
+      "content_sha256": "89a177a9defd6e5bfd27ca0ab94aa5a080ec827cadb101098ec168af11075b3d"
+    },
+    {
+      "id": "057d2c33-5260-17be-68aa-50e5ea2556c6",
+      "source_id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "title": "Infestation, Dampness, or Settlement",
+      "content_sha256": "fccb4796bbb9d73676dd4bcbac593a7edae21e68c4576e5e0b52fa1092e0900b"
+    },
+    {
+      "id": "bb184b24-5b11-d468-d786-8f6f9a770f3b",
+      "source_id": "a0179c21-e82d-f250-698b-df393135b4e8",
+      "section": "B4-1.3-06",
+      "title": "Uniform Appraisal Dataset (UAD) 3.6 Policy",
+      "content_sha256": "3d363b3e42b55e1b22f55e6bf2fefb8cad99e49554d2e94fe5b699dc01d9cdeb"
+    },
+    {
+      "id": "170a750b-2a1f-22c7-76d6-af9602e5728f",
+      "source_id": "7129b5e0-7066-50fa-1b60-10d84ac0cfc1",
+      "section": "B4-1.3-07",
+      "title": "Overview",
+      "content_sha256": "bc29b04709a88417433d91d81763d263c22ad380937bccfdd5d60884630b367c"
+    },
+    {
+      "id": "23d931ee-369b-1192-a78c-62ee6812acd2",
+      "source_id": "7129b5e0-7066-50fa-1b60-10d84ac0cfc1",
+      "section": "B4-1.3-07",
+      "title": "Data and Verification Sources of Comparable Sales",
+      "content_sha256": "0bc580e78008d52e286586ae9d1e24a63e160786891f4a6d6b5e89d4c37f5819"
+    },
+    {
+      "id": "ed0623ee-518a-cffe-47cb-193ca0e59f0f",
+      "source_id": "7129b5e0-7066-50fa-1b60-10d84ac0cfc1",
+      "section": "B4-1.3-07",
+      "title": "Prior Sales History of the Subject and Comparable Sales",
+      "content_sha256": "3e673d96f01a9cb26bd9ce90ac88c7024f980794f6158220a707739e2af78108"
+    },
+    {
+      "id": "1af40bc8-dfa1-b5ce-1ef1-e03adf1080a2",
+      "source_id": "7129b5e0-7066-50fa-1b60-10d84ac0cfc1",
+      "section": "B4-1.3-07",
+      "title": "Uniform Appraisal Dataset (UAD) 3.6 Policy",
+      "content_sha256": "3d363b3e42b55e1b22f55e6bf2fefb8cad99e49554d2e94fe5b699dc01d9cdeb"
+    },
+    {
+      "id": "729d803e-192d-3bbd-980d-d75a16efb9a6",
+      "source_id": "d52fbd0f-5332-bd27-d80f-273617ef1ff5",
+      "section": "B4-1.3-08",
+      "title": "Selection of Comparable Sales",
+      "content_sha256": "a91482272a5550130fcec374fa819db798392acfe458146e05da2f7f2b509f01"
+    },
+    {
+      "id": "c60d8535-a617-3c1c-70be-3f0a5f3a2b23",
+      "source_id": "d52fbd0f-5332-bd27-d80f-273617ef1ff5",
+      "section": "B4-1.3-08",
+      "title": "Minimum Number of Comparable Sales",
+      "content_sha256": "70607e07dc6fd21d660a9ea95c1b7736d0a7d57b93dc47000ba475a910f591fa"
+    },
+    {
+      "id": "f424d53c-9ad5-ea1b-c724-d21e262b92ee",
+      "source_id": "d52fbd0f-5332-bd27-d80f-273617ef1ff5",
+      "section": "B4-1.3-08",
+      "title": "Age of the Comparable Sales",
+      "content_sha256": "511f0b559495346effad61de584c85afd90867b0c6ee61669a9cd40d478601d5"
+    },
+    {
+      "id": "3c7e2d33-6c3c-b089-1e22-2f1f0b5ee51e",
+      "source_id": "d52fbd0f-5332-bd27-d80f-273617ef1ff5",
+      "section": "B4-1.3-08",
+      "title": "Additional Requirements for New (or Recently Converted) Condos, Subdivisions, or PUDS",
+      "content_sha256": "e457d04506f0fbc88af198030874387ae0c986bdf0dee66435a5daa20004ec9b"
+    },
+    {
+      "id": "d0ed459f-596c-c1bb-d05e-854e89f4334e",
+      "source_id": "d52fbd0f-5332-bd27-d80f-273617ef1ff5",
+      "section": "B4-1.3-08",
+      "title": "Rural Properties",
+      "content_sha256": "1e0616e74e79b385680fc41c5b7b2921e6f15466dafb73159b9f32adf7c4c4d3"
+    },
+    {
+      "id": "4ecc5b58-5bd5-9127-0de2-3c2baab11299",
+      "source_id": "d52fbd0f-5332-bd27-d80f-273617ef1ff5",
+      "section": "B4-1.3-08",
+      "title": "Use of Foreclosures and Short Sales",
+      "content_sha256": "c4f816e574e7d972240c8c77584f16d8ec9a1f65c59c9c02e19ed3bcaa1674fb"
+    },
+    {
+      "id": "a2aada87-fe7d-bde4-3509-ae7f5c3a5411",
+      "source_id": "d52fbd0f-5332-bd27-d80f-273617ef1ff5",
+      "section": "B4-1.3-08",
+      "title": "Uniform Appraisal Dataset (UAD) 3.6 Policy",
+      "content_sha256": "3d363b3e42b55e1b22f55e6bf2fefb8cad99e49554d2e94fe5b699dc01d9cdeb"
+    },
+    {
+      "id": "2075a180-1983-92de-475a-49c2d3e4f493",
+      "source_id": "4bc5728a-21ce-fad4-c0d2-615a9c00c43b",
+      "section": "B4-1.3-09",
+      "title": "Analysis of Adjustments",
+      "content_sha256": "c208450760ee54cc5e784020b6f3d1f520651b81b8477b1fbff420bed20c3db5"
+    },
+    {
+      "id": "113eefd0-3ed4-df3f-86c4-737eb8a72803",
+      "source_id": "4bc5728a-21ce-fad4-c0d2-615a9c00c43b",
+      "section": "B4-1.3-09",
+      "title": "Sales or Financing Concessions",
+      "content_sha256": "baad7d65e6a14a70ab412af7e6f3e32bb0c74dad163f83ab06072bffb351f4d4"
+    },
+    {
+      "id": "d8608cf8-8b15-5c1c-2e83-785213f7c8f3",
+      "source_id": "4bc5728a-21ce-fad4-c0d2-615a9c00c43b",
+      "section": "B4-1.3-09",
+      "title": "Market Conditions Analysis and Time Adjustments",
+      "content_sha256": "19b183ab4f44b703d3f7141e625c736b05402439e926a124deb0769103ae56b9"
+    },
+    {
+      "id": "ffccb7f0-d5cf-7530-fc7c-f0d066447c7f",
+      "source_id": "4bc5728a-21ce-fad4-c0d2-615a9c00c43b",
+      "section": "B4-1.3-09",
+      "title": "Appraiser’s Comments and Indicated Value in the Sales Comparison Approach",
+      "content_sha256": "a8d213806261f644a10ac6783b840d95224f0802a9ebbb42f72beacbf4bf298e"
+    },
+    {
+      "id": "2472fd53-1d91-880f-52f3-8d73ea1ff635",
+      "source_id": "4bc5728a-21ce-fad4-c0d2-615a9c00c43b",
+      "section": "B4-1.3-09",
+      "title": "Uniform Appraisal Dataset (UAD) 3.6 Policy",
+      "content_sha256": "3d363b3e42b55e1b22f55e6bf2fefb8cad99e49554d2e94fe5b699dc01d9cdeb"
+    },
+    {
+      "id": "84836a10-c939-1dc4-f301-450ab14e6472",
+      "source_id": "f4c72547-0ece-83da-63b3-828558cfe068",
+      "section": "B4-1.3-11",
+      "title": "Overview",
+      "content_sha256": "b9a84bb2d25a6925f018dec579e29ea61b71f570f0686f55bd86dc2df73c15df"
+    },
+    {
+      "id": "5ea160c9-0331-1779-0cb9-14e25f0ae6f4",
+      "source_id": "f4c72547-0ece-83da-63b3-828558cfe068",
+      "section": "B4-1.3-11",
+      "title": "Reconciliation",
+      "content_sha256": "7874b0d47b0127a54fcda0438a4ace0567e875fd388a97847364cfec2d6da201"
+    },
+    {
+      "id": "7c48980f-a6fd-c8c4-9e6c-b6ea16b1fb1d",
+      "source_id": "f4c72547-0ece-83da-63b3-828558cfe068",
+      "section": "B4-1.3-11",
+      "title": "Uniform Appraisal Dataset (UAD) 3.6 Policy",
+      "content_sha256": "3d363b3e42b55e1b22f55e6bf2fefb8cad99e49554d2e94fe5b699dc01d9cdeb"
+    },
+    {
+      "id": "486c4287-0fea-9ded-83d7-f3f10155ff22",
+      "source_id": "4b3a8e18-9f2f-cd7e-bce1-309338405146",
+      "section": "B4-1.2-01",
+      "title": "Scope of Work",
+      "content_sha256": "98e7058a018c686851649c4119270763e2a000187a69500bdfdda3d4fa29dbf2"
+    },
+    {
+      "id": "e1b3c3d5-d4f3-25ff-63e5-68562448ba2a",
+      "source_id": "4b3a8e18-9f2f-cd7e-bce1-309338405146",
+      "section": "B4-1.2-01",
+      "title": "List of Appraisal Report Forms",
+      "content_sha256": "23b982d332ca17c04c5b12500c61cfac922df43e7bf5c402224eb2bc07987c9e"
+    },
+    {
+      "id": "eddf430a-86ce-53c9-1ae9-a1470cb1d68e",
+      "source_id": "4b3a8e18-9f2f-cd7e-bce1-309338405146",
+      "section": "B4-1.2-01",
+      "title": "Exhibits for Appraisals",
+      "content_sha256": "60cdd5933aae2e3eb72690fb277758563ec10d1a5fc7cc15a6dd6b730b09bcd7"
+    },
+    {
+      "id": "ea5d2ca7-56e3-1785-4cac-d5f15244c278",
+      "source_id": "4b3a8e18-9f2f-cd7e-bce1-309338405146",
+      "section": "B4-1.2-01",
+      "title": "Appraiser Certifications and Limiting Conditions",
+      "content_sha256": "9d73c3a3f1ba41061d070400eac31ea4ae741f0b43786f907f7641e7267ffe43"
+    },
+    {
+      "id": "47c3d67f-f90e-4715-90e5-1601c54a2c68",
+      "source_id": "4b3a8e18-9f2f-cd7e-bce1-309338405146",
+      "section": "B4-1.2-01",
+      "title": "Uniform Appraisal Dataset (UAD) 3.6 Policy",
+      "content_sha256": "c4052dfec99293696546aeaf133ad02b82b482e529f554ec59ed2d09022a19c5"
+    }
+  ],
+  "derived_chunk_ids": [
+    "58399be5-629d-4fb3-bc76-d70bd347e357",
+    "8f4ec5eb-8aaf-431b-ba30-213229d11764",
+    "184bc948-46f7-4c35-ab05-0901b30f2b37",
+    "b576c04e-4a81-4a72-89ea-72f364c01c1d",
+    "d6e61b42-b75f-4f61-9790-b7c1d7ced295",
+    "1a9b3bf8-65b5-44da-abdb-6a5c73e5d7a8"
+  ]
+}
