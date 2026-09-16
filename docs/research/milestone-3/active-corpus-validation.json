@@ -1,0 +1,63 @@
+{
+  "method": "Live SELECT calls to current search_knowledge for eight original questions and three section expansions; local engine consumes exact responses. Not an authenticated HTTP session test.",
+  "checked_at": "2026-09-14T21:32:18.601Z",
+  "raw_staged_chunks_returned": 0,
+  "results": [
+    {
+      "topic": "adjustments",
+      "passed": true,
+      "confidence": "High",
+      "section": "B4-1.3-09",
+      "staged_chunks_returned": 0
+    },
+    {
+      "topic": "distance",
+      "passed": true,
+      "confidence": "High",
+      "section": "B4-1.3-08",
+      "staged_chunks_returned": 0
+    },
+    {
+      "topic": "older_comparables",
+      "passed": true,
+      "confidence": "High",
+      "section": "B4-1.3-08",
+      "staged_chunks_returned": 0
+    },
+    {
+      "topic": "rural_comparables",
+      "passed": true,
+      "confidence": "High",
+      "section": "B4-1.3-08",
+      "staged_chunks_returned": 0
+    },
+    {
+      "topic": "market_area",
+      "passed": true,
+      "confidence": "High",
+      "section": "B4-1.3-08",
+      "staged_chunks_returned": 0
+    },
+    {
+      "topic": "verification",
+      "passed": true,
+      "confidence": "High",
+      "section": "B4-1.3-07",
+      "staged_chunks_returned": 0
+    },
+    {
+      "topic": "listings_contracts",
+      "passed": true,
+      "confidence": "High",
+      "section": "B4-1.3-08",
+      "staged_chunks_returned": 0
+    },
+    {
+      "topic": "concessions",
+      "passed": true,
+      "confidence": "High",
+      "section": "B4-1.3-09",
+      "staged_chunks_returned": 0
+    }
+  ]
+}
