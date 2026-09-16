@@ -4,11 +4,16 @@ import { publisherReceipt } from './provenance';
 
 // Retrieval vocabulary, never answer text. Keep complete paragraphs to retain qualifications.
 export const concepts: Record<Topic, RegExp> = {
+  sales_history: /sales history|prior sales|prior transfers/i,
+  zoning: /zoning|nonconforming|non-conforming|land-use regulation/i,
+  below_grade: /below-grade|above-grade|ANSI|square footage/i,
+  condition: /condition rating|\bC[1-6]\b|safety|soundness|structural integrity/i,
+  photos: /photograph|photo\b/i,
   adjustments: /adjustment/i,
   concessions: /concession/i,
   verification: /verif|data source|financial interest/i,
   distance: /distan|proximity|mile/i,
-  rural_comparables: /rural|low.volume|remote/i,
+  rural_comparables: /rural|low.volume|remote|shortage|not truly comparable/i,
   older_comparables: /older|prior twelve months|prior 12 months/i,
   market_area: /market area|neighborhood|location adjustment/i,
   listings_contracts: /listing|contract offering|closed comparable/i,

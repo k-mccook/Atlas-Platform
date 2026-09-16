@@ -1,6 +1,8 @@
 import type { SearchResult, TargetSource, Topic } from './types';
 
 export const preferredSections: Partial<Record<Topic, string>> = {
+  sales_history: 'B4-1.3-07', zoning: 'B4-1.3-04', below_grade: 'B4-1.3-05',
+  condition: 'B4-1.3-06', photos: 'B4-1.2-01',
   comparable_sales: 'B4-1.3-08',
   adjustments: 'B4-1.3-09',
   sales_comparison: 'B4-1.3-07',
@@ -53,6 +55,12 @@ export function detectTopics(question: string): Topic[] {
     .replace(/[’']/g, "'")
     .replace(/\s+/g, ' ')
     .trim();
+
+  if (/sales? history|prior (sales?|transfers?)|previous (sales?|transfers?)/.test(q)) topics.push('sales_history');
+  if (/zon(?:ing|ed)|non[- ]?conforming|grandfathered/.test(q)) topics.push('zoning');
+  if (/below[- ]grade|basement|finished area|square footage|ansi/.test(q)) topics.push('below_grade');
+  if (/\bcondition\b|\bc[1-6]\b|safety|soundness|structural integrity/.test(q)) topics.push('condition');
+  if (/photo(?:graphs?)?s?|pictures?|images?/.test(q)) topics.push('photos');
 
   if (
     q.includes('reconcil') ||
@@ -285,6 +293,11 @@ export function strictSourceMatch(
 
 export function topicLabel(topic: Topic) {
   switch (topic) {
+    case 'sales_history': return 'Prior Sales History';
+    case 'zoning': return 'Property Zoning';
+    case 'below_grade': return 'Above- and Below-Grade Areas';
+    case 'condition': return 'Property Condition';
+    case 'photos': return 'Appraisal Photographs';
     case 'comparable_sales':
       return 'Comparable Sales';
 
@@ -334,4 +347,3 @@ export function getOfficialSourceUrl(result: SearchResult) {
 
   return result.source_url;
 }
-

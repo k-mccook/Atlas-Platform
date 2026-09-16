@@ -1,5 +1,7 @@
 # Publisher compatibility and Confidence V2 review
 
+Historical checkpoint report: the subsequent application-only recognition pass is documented in `RECOGNITION-PASS.md`; its preserved starting benchmark is `benchmark-first-staged.json`. `benchmark-staged.json` now contains the newer results.
+
 Activation remains unexecuted. This document supersedes the pre-change compatibility warning in `corpus-compatibility-preview.json` without rewriting that historical receipt.
 
 ## What changed

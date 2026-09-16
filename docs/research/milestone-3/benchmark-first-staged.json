@@ -2,46 +2,31 @@
   "methodology": "Local replay of all 67 exact database-verified staged publisher chunks; no activation or live staged RPC. Same 50 questions with publisher-supported propositions and answerability. PostgreSQL collation and other-authority competition are not simulated.",
   "activation_executed": false,
   "total": 50,
-  "correct_grounded_answers": 40,
+  "correct_grounded_answers": 25,
   "correct_abstentions": 6,
-  "failed_cases": 4,
+  "failed_cases": 19,
   "failure_counts": {
     "incorrect_answer": 0,
     "wrong_section_retrieval": 0,
-    "incomplete_evidence_coverage": 4,
+    "incomplete_evidence_coverage": 19,
     "authority_failure": 0,
     "citation_failure": 0,
     "confidence_calibration_failure": 0,
     "provenance_failure": 0
   },
   "previous_coverage_failures_corrected": [
-    "FM09",
     "FM10",
     "FM11",
-    "FM17",
-    "FM21",
     "FM22",
-    "FM24",
     "FM25",
     "FM27",
-    "FM32",
     "FM33",
-    "FM40",
     "FM44"
   ],
   "previously_correct_answers_now_failing": [],
   "previous_abstentions_now_supported": [
-    "FM18",
-    "FM20",
-    "FM29",
     "FM30",
-    "FM31",
-    "FM34",
-    "FM35",
-    "FM36",
-    "FM37",
-    "FM38",
-    "FM45"
+    "FM34"
   ],
   "previous_abstentions_now_unsupported_answers": [],
   "results": [
@@ -122,7 +107,6 @@
       ],
       "actual_topic": "rural_comparables",
       "actual_sections": [
-        "B4-1.3-08",
         "B4-1.3-08",
         "B4-1.3-08",
         "B4-1.3-03"
@@ -234,27 +218,14 @@
         "B4-1.3-08"
       ],
       "actual_topic": "comparable_sales",
-      "actual_sections": [
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-07",
-        "B4-1.3-09",
-        "B4-1.3-05",
-        "B4-1.3-09",
-        "B4-1.3-05",
-        "B4-1.3-04",
-        "B4-1.3-06",
-        "B4-1.3-03"
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM10",
@@ -424,25 +395,14 @@
         "B4-1.3-09"
       ],
       "actual_topic": "adjustments",
-      "actual_sections": [
-        "B4-1.3-09",
-        "B4-1.3-09",
-        "B4-1.3-09",
-        "B4-1.3-09",
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-05",
-        "B4-1.3-05",
-        "B4-1.3-08",
-        "B4-1.3-05",
-        "B4-1.3-05",
-        "B4-1.3-03"
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM18",
@@ -453,23 +413,14 @@
         "B4-1.3-09"
       ],
       "actual_topic": "adjustments",
-      "actual_sections": [
-        "B4-1.3-09",
-        "B4-1.3-09",
-        "B4-1.3-09",
-        "B4-1.3-09",
-        "B4-1.3-05",
-        "B4-1.3-05",
-        "B4-1.3-03",
-        "B4-1.3-05",
-        "B4-1.3-08",
-        "B4-1.3-08"
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM19",
@@ -510,18 +461,14 @@
         "B4-1.3-09"
       ],
       "actual_topic": "concessions",
-      "actual_sections": [
-        "B4-1.3-09",
-        "B4-1.3-09",
-        "B4-1.3-03",
-        "B4-1.3-08",
-        "B4-1.3-07"
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM21",
@@ -532,18 +479,14 @@
         "B4-1.3-07"
       ],
       "actual_topic": "verification",
-      "actual_sections": [
-        "B4-1.3-07",
-        "B4-1.3-09",
-        "B4-1.3-08",
-        "B4-1.3-09",
-        "B4-1.3-09"
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM22",
@@ -600,16 +543,15 @@
       "expected_sections": [
         "B4-1.3-07"
       ],
-      "actual_topic": "sales_history",
-      "actual_sections": [
-        "B4-1.3-07",
-        "B4-1.3-09"
+      "actual_topic": "general",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "classification",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM25",
@@ -619,10 +561,22 @@
       "expected_sections": [
         "B4-1.3-07"
       ],
-      "actual_topic": "sales_history",
+      "actual_topic": "comparable_sales",
       "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
         "B4-1.3-07",
-        "B4-1.3-09"
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-09",
+        "B4-1.3-06",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-09",
+        "B4-1.3-06",
+        "B4-1.3-05"
       ],
       "confidence": "High",
       "outcome": "correct_grounded_answer",
@@ -689,7 +643,6 @@
       "actual_sections": [
         "B4-1.3-08",
         "B4-1.3-08",
-        "B4-1.3-08",
         "B4-1.3-03"
       ],
       "confidence": "High",
@@ -707,18 +660,14 @@
         "B4-1.3-08"
       ],
       "actual_topic": "rural_comparables",
-      "actual_sections": [
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-03",
-        "B4-1.3-03"
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM30",
@@ -757,24 +706,14 @@
         "B4-1.3-08"
       ],
       "actual_topic": "comparable_sales",
-      "actual_sections": [
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-05",
-        "B4-1.3-09",
-        "B4-1.3-04",
-        "B4-1.3-05",
-        "B4-1.3-06"
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM32",
@@ -785,22 +724,14 @@
         "B4-1.3-08"
       ],
       "actual_topic": "market_area",
-      "actual_sections": [
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-08",
-        "B4-1.3-09",
-        "B4-1.3-03",
-        "B4-1.3-05",
-        "B4-1.3-05",
-        "B4-1.3-03",
-        "B4-1.2-01"
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM33",
@@ -872,18 +803,15 @@
       "expected_sections": [
         "B4-1.3-04"
       ],
-      "actual_topic": "zoning",
-      "actual_sections": [
-        "B4-1.3-04",
-        "B4-1.3-05",
-        "B4-1.3-03",
-        "B4-1.3-06"
+      "actual_topic": "general",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "classification",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM36",
@@ -893,23 +821,15 @@
       "expected_sections": [
         "B4-1.3-05"
       ],
-      "actual_topic": "below_grade",
-      "actual_sections": [
-        "B4-1.3-05",
-        "B4-1.3-05",
-        "B4-1.3-05",
-        "B4-1.3-05",
-        "B4-1.2-01",
-        "B4-1.3-08",
-        "B4-1.3-09",
-        "B4-1.2-01",
-        "B4-1.3-06"
+      "actual_topic": "general",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "classification",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM37",
@@ -919,20 +839,15 @@
       "expected_sections": [
         "B4-1.3-06"
       ],
-      "actual_topic": "condition",
-      "actual_sections": [
-        "B4-1.3-06",
-        "B4-1.3-06",
-        "B4-1.3-06",
-        "B4-1.3-06",
-        "B4-1.3-06",
-        "B4-1.3-06"
+      "actual_topic": "general",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "classification",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM38",
@@ -942,15 +857,15 @@
       "expected_sections": [
         "B4-1.2-01"
       ],
-      "actual_topic": "photos",
-      "actual_sections": [
-        "B4-1.2-01"
+      "actual_topic": "general",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "classification",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM39",
@@ -980,14 +895,14 @@
         "B4-1.3-11"
       ],
       "actual_topic": "reconciliation",
-      "actual_sections": [
-        "B4-1.3-11"
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM41",
@@ -1069,7 +984,6 @@
       "actual_sections": [
         "B4-1.3-08",
         "B4-1.3-08",
-        "B4-1.3-08",
         "B4-1.3-03"
       ],
       "confidence": "High",
@@ -1087,28 +1001,15 @@
         "B4-1.3-09",
         "B4-1.3-04"
       ],
-      "actual_topic": "zoning",
-      "actual_sections": [
-        "B4-1.3-03",
-        "B4-1.3-09",
-        "B4-1.3-09",
-        "B4-1.3-04",
-        "B4-1.3-09",
-        "B4-1.3-09",
-        "B4-1.3-05",
-        "B4-1.3-05",
-        "B4-1.3-05",
-        "B4-1.3-08",
-        "B4-1.3-05",
-        "B4-1.3-03",
-        "B4-1.3-08",
-        "B4-1.3-03"
+      "actual_topic": "adjustments",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
       ],
-      "confidence": "High",
-      "outcome": "correct_grounded_answer",
-      "failures": [],
-      "root_cause": null,
-      "publisher_provenance": "hash_verified_capture"
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable"
     },
     {
       "id": "FM46",

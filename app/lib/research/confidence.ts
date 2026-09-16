@@ -2,6 +2,11 @@ import type { Topic } from './types';
 
 // Coverage checks establish the kind of support required, not a factual answer.
 const support: Record<Topic, RegExp[]> = {
+  sales_history: [/sales history|sales[\s\S]*history/i, /report|require/i],
+  zoning: [/zoning|nonconforming/i, /must|provided|require/i],
+  below_grade: [/below-grade/i, /report[\s\S]*separately/i],
+  condition: [/condition/i, /must|eligible|subject to/i],
+  photos: [/photograph/i, /must|require/i],
   adjustments: [/adjustment/i, /must|should|may/i], concessions: [/concession/i, /market/i, /adjust/i],
   verification: [/verif/i, /source/i, /must|require/i],
   distance: [/distan|mile|proximity/i, /may|must|should/i],

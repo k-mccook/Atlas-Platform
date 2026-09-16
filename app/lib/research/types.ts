@@ -36,5 +36,9 @@ export type Topic =
   | 'rural_comparables'
   | 'distance'
   | 'listings_contracts'
+  | 'sales_history'
+  | 'zoning'
+  | 'below_grade'
+  | 'condition'
+  | 'photos'
   | 'general';
-
