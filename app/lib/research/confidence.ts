@@ -21,6 +21,7 @@ export function directCoverage(topic: Topic, text: string) {
 const synonyms: Record<string, string> = {
   neighborhood: 'market area', pending: 'contract', sold: 'sale', twelve: '12',
   farther: 'distant', far: 'distant', distance: 'distant', guidelines: '', limits: 'limitation',
+  supports: 'explanation',
 };
 const stop = new Set('a an the does do is are be have has can could i we use used using under for from of to on in at and or than more ago away how what when where why should would require requires requirement requirements fannie mae fnma freddie mac fhlmc fha hud uspap va uad appraisal appraisals subject subjects property properties question please tell me about with their its it that this my sale sales comparable comparables guideline guidelines'.split(' '));
 function words(text: string) {

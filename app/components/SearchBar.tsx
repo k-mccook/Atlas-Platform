@@ -27,6 +27,7 @@ type AtlasResult = {
   primary_section?: string | null;
   primary_section_title?: string | null;
   result_count?: number;
+  confidence_state?: { effective_date_missing: boolean; reasons: string[] };
 };
 
 const suggestedQuestions = [
@@ -358,6 +359,18 @@ export default function SearchBar() {
               </div>
             </div>
           </div>
+
+          {result.confidence_state?.effective_date_missing && (
+            <div className="border-b border-slate-200 bg-white px-6 py-4 text-sm text-slate-600 sm:px-8">
+              <p>A guidance effective date is unavailable. Confidence in the quoted evidence does not establish applicability to every date or appraisal version.</p>
+              <details className="mt-2">
+                <summary className="cursor-pointer">Evidence and version details</summary>
+                <ul className="mt-2 list-disc space-y-1 pl-5">
+                  {result.confidence_state.reasons.map(reason => <li key={reason}>{reason}</li>)}
+                </ul>
+              </details>
+            </div>
+          )}
 
           <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_320px]">
             <div>

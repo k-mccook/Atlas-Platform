@@ -1,5 +1,6 @@
 import { normalize, preferredSections, strictSourceMatch } from './analysis';
 import type { SearchResult, Topic } from './types';
+import { publisherReceipt } from './provenance';
 
 // Retrieval vocabulary, never answer text. Keep complete paragraphs to retain qualifications.
 export const concepts: Record<Topic, RegExp> = {
@@ -55,6 +56,11 @@ export function selectEvidence(rows: SearchResult[], topics: Topic[]) {
   const continuation = /^(however|unless|except|provided|in such|in these|in those|this |these |those |the above|for example|\(?\d+[.)]|[-•])/i;
   return rows.flatMap(row => {
     const blocks = paragraphs(row);
+    // A reviewed publisher subsection is a semantic unit. Keep its lists and
+    // qualifications together instead of dropping items lacking topic keywords.
+    if (publisherReceipt(row) && topics.some(topic => concepts[topic].test(row.content))) {
+      return blocks.map(part => ({ ...part, chunk_id: row.chunk_id, topics: topics.filter(topic => concepts[topic].test(row.content)) }));
+    }
     const selected = new Set<number>();
     blocks.forEach((part, index) => {
       if (topics.some(topic => concepts[topic].test(part.text))) {

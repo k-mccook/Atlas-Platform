@@ -3,6 +3,7 @@ import { detectAuthorities, detectTopics, strictSourceMatch, topicLabel } from '
 import { concepts, rankEvidence, selectEvidence, hasConflict } from './evidence';
 import { directCoverage, missingSpecifics } from './confidence';
 import { retrieve } from './retrieval';
+import { evidenceConfidence } from './provenance';
 
 export const INSUFFICIENT = 'Atlas did not find enough relevant authoritative guidance in the current knowledge base to answer this question reliably.';
 
@@ -33,14 +34,15 @@ export async function research(question: string, client: Parameters<typeof retri
   const reasons = [safe ? 'Direct passages cover each recognized concept.' : 'Direct support is insufficient for the complete question.'];
   if (ambiguous) reasons.push('An authority must be selected; requirements are not combined.');
   if (conflict) reasons.push('Potential conflicting wording or versions require review.');
-  if (safe) reasons.push('Evidence is labeled authoritative in the corpus; publisher provenance is not independently verified.');
-  const dated = sources.every(row => row.source_version && row.effective_date && row.source_url);
+  const confidenceState = evidenceConfidence(used, safe, question);
+  if (safe) reasons.push(...confidenceState.reasons);
   return {
     answer: safe ? assembled.answer : INSUFFICIENT,
-    category: topicLabel(topic), confidence: safe ? (dated ? 'High' : 'Medium') : 'Low', topic, topics,
+    category: topicLabel(topic), confidence: confidenceState.confidence, topic, topics,
     target_source: target ?? primary?.organization ?? null, primary_section: primary?.section ?? null,
     primary_section_title: primary?.chunk_title ?? primary?.source_title ?? null,
     sources, result_count: sources.length, answer_parts: answerParts, citations,
     coverage: { requested: topics, supported: covered, complete: safe }, confidence_reasons: reasons,
+    confidence_state: confidenceState,
   };
 }
