@@ -6,6 +6,7 @@ import { retrieve } from './retrieval';
 import { evidenceConfidence } from './provenance';
 import { publisherReceipt } from './provenance';
 import { canonicalWording, hasExplicitQualification } from './terminology';
+import { boundedReasoning } from './reasoning';
 
 export const INSUFFICIENT = 'Atlas did not find enough relevant authoritative guidance in the current knowledge base to answer this question reliably.';
 
@@ -29,7 +30,8 @@ export async function research(question: string, client: Parameters<typeof retri
   const vocabulary = parts.map(part => part.text).join(' ').toLowerCase();
   const publisherVerified = used.length > 0 && used.every(row => publisherReceipt(row));
   const qualifiedPrimary = parts.some(part => concepts[topic].test(part.text) && hasExplicitQualification(part.text));
-  const missing = publisherVerified ? missingSpecifics(canonicalWording(question), canonicalWording(vocabulary))
+  const reasoning = boundedReasoning(question, used);
+  const missing = publisherVerified ? missingSpecifics(canonicalWording(reasoning.coverageQuestion), canonicalWording(vocabulary))
     .filter(term => term !== 'alway' || !qualifiedPrimary) : missingSpecifics(question, vocabulary);
   const unsupported = missing.length > 0;
   const complete = covered.length === topics.length && topic !== 'general' && !unsupported;
@@ -50,5 +52,6 @@ export async function research(question: string, client: Parameters<typeof retri
     sources, result_count: sources.length, answer_parts: answerParts, citations,
     coverage: { requested: topics, supported: covered, unsupported: topics.filter(topic => !covered.includes(topic)), missing_terms: missing, complete: safe }, confidence_reasons: reasons,
     confidence_state: confidenceState,
+    reasoning: safe ? reasoning.steps : [],
   };
 }

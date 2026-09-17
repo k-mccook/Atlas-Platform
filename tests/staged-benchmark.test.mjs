@@ -10,6 +10,7 @@ const { research } = loadTypescript('app/lib/research/engine.ts');
 const { publisherReceipt } = loadTypescript('app/lib/research/provenance.ts');
 const grounded = new Set('FM01 FM02 FM03 FM04 FM05 FM06 FM07 FM08 FM10 FM11 FM12 FM19 FM22 FM23 FM25 FM27 FM28 FM30 FM33 FM34 FM39 FM41 FM42 FM43 FM44'.split(' '));
 for (const id of 'FM09 FM17 FM18 FM20 FM21 FM24 FM29 FM31 FM32 FM35 FM36 FM37 FM38 FM40 FM45'.split(' ')) grounded.add(id);
+for (const id of 'FM13 FM15 FM16 FM26'.split(' ')) grounded.add(id);
 const abstentions = new Set('FM14 FM46 FM47 FM48 FM49 FM50'.split(' '));
 test('publisher benchmark preserves all 50 questions and verifies all 67 runtime receipts', () => {
   assert.deepEqual(publisherCases.map(e=>[e.id,e.question]),benchmarkCases.map(e=>[e.id,e.question]));
