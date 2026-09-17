@@ -1,0 +1,1877 @@
+{
+  "captured_at": "2026-09-16T19:18:04.342Z",
+  "methodology": "Actual activated PostgreSQL public.search_knowledge results collected by read-only SELECT in the existing authenticated Supabase SQL editor, including real ranking, collation, twelve-row limit, current-source filter and other-authority competition. Unmodified Research Engine consumes exactly those returned rows, including bounded expansion queries. Not a lexical replay and not fifty authenticated HTTP requests; application authentication/UI is validated separately.",
+  "activation_executed": true,
+  "captured_queries": 59,
+  "consumed_queries": 59,
+  "total": 50,
+  "correct_grounded_answers": 40,
+  "correct_abstentions": 6,
+  "failed_cases": 4,
+  "failure_counts": {
+    "incorrect_answer": 0,
+    "wrong_section_retrieval": 0,
+    "incomplete_evidence_coverage": 4,
+    "authority_failure": 0,
+    "citation_failure": 0,
+    "confidence_calibration_failure": 0,
+    "provenance_failure": 0
+  },
+  "differences_from_staged": [],
+  "compatibility": [
+    {
+      "topic": "adjustments",
+      "section": "B4-1.3-09",
+      "confidence": "High",
+      "passed": true,
+      "checks": {
+        "nonempty_grounded_answer": true,
+        "authority": true,
+        "topic_category": true,
+        "primary_section": true,
+        "publisher_evidence": true,
+        "qualifications": true,
+        "citations": true,
+        "official_urls": true,
+        "confidence": true
+      }
+    },
+    {
+      "topic": "distance",
+      "section": "B4-1.3-08",
+      "confidence": "High",
+      "passed": true,
+      "checks": {
+        "nonempty_grounded_answer": true,
+        "authority": true,
+        "topic_category": true,
+        "primary_section": true,
+        "publisher_evidence": true,
+        "qualifications": true,
+        "citations": true,
+        "official_urls": true,
+        "confidence": true
+      }
+    },
+    {
+      "topic": "older_comparables",
+      "section": "B4-1.3-08",
+      "confidence": "High",
+      "passed": true,
+      "checks": {
+        "nonempty_grounded_answer": true,
+        "authority": true,
+        "topic_category": true,
+        "primary_section": true,
+        "publisher_evidence": true,
+        "qualifications": true,
+        "citations": true,
+        "official_urls": true,
+        "confidence": true
+      }
+    },
+    {
+      "topic": "rural_comparables",
+      "section": "B4-1.3-08",
+      "confidence": "High",
+      "passed": true,
+      "checks": {
+        "nonempty_grounded_answer": true,
+        "authority": true,
+        "topic_category": true,
+        "primary_section": true,
+        "publisher_evidence": true,
+        "qualifications": true,
+        "citations": true,
+        "official_urls": true,
+        "confidence": true
+      }
+    },
+    {
+      "topic": "market_area",
+      "section": "B4-1.3-08",
+      "confidence": "High",
+      "passed": true,
+      "checks": {
+        "nonempty_grounded_answer": true,
+        "authority": true,
+        "topic_category": true,
+        "primary_section": true,
+        "publisher_evidence": true,
+        "qualifications": true,
+        "citations": true,
+        "official_urls": true,
+        "confidence": true
+      }
+    },
+    {
+      "topic": "verification",
+      "section": "B4-1.3-07",
+      "confidence": "High",
+      "passed": true,
+      "checks": {
+        "nonempty_grounded_answer": true,
+        "authority": true,
+        "topic_category": true,
+        "primary_section": true,
+        "publisher_evidence": true,
+        "qualifications": true,
+        "citations": true,
+        "official_urls": true,
+        "confidence": true
+      }
+    },
+    {
+      "topic": "listings_contracts",
+      "section": "B4-1.3-08",
+      "confidence": "High",
+      "passed": true,
+      "checks": {
+        "nonempty_grounded_answer": true,
+        "authority": true,
+        "topic_category": true,
+        "primary_section": true,
+        "publisher_evidence": true,
+        "qualifications": true,
+        "citations": true,
+        "official_urls": true,
+        "confidence": true
+      }
+    },
+    {
+      "topic": "concessions",
+      "section": "B4-1.3-09",
+      "confidence": "High",
+      "passed": true,
+      "checks": {
+        "nonempty_grounded_answer": true,
+        "authority": true,
+        "topic_category": true,
+        "primary_section": true,
+        "publisher_evidence": true,
+        "qualifications": true,
+        "citations": true,
+        "official_urls": true,
+        "confidence": true
+      }
+    }
+  ],
+  "results": [
+    {
+      "id": "FM01",
+      "question": "Does Fannie Mae have limits on gross or net adjustments?",
+      "classification": "answerable",
+      "kind": "established",
+      "expected_sections": [
+        "B4-1.3-09"
+      ],
+      "actual_topic": "adjustments",
+      "actual_sections": [
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-03"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "adjustments"
+        ],
+        "supported": [
+          "adjustments"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM02",
+      "question": "How far away can a comparable sale be under Fannie Mae guidelines?",
+      "classification": "answerable",
+      "kind": "established",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "distance",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "distance"
+        ],
+        "supported": [
+          "distance"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM03",
+      "question": "Can I use a comparable that sold more than 12 months ago for Fannie Mae?",
+      "classification": "answerable",
+      "kind": "established",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "older_comparables",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-05",
+        "B4-1.3-06",
+        "B4-1.3-06"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "older_comparables"
+        ],
+        "supported": [
+          "older_comparables"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM04",
+      "question": "Can rural comparable sales be farther away from the subject under Fannie Mae guidelines?",
+      "classification": "answerable",
+      "kind": "established",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "rural_comparables",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-03"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "rural_comparables"
+        ],
+        "supported": [
+          "rural_comparables"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM05",
+      "question": "Can I use a comparable from outside the subject's neighborhood under Fannie Mae guidelines?",
+      "classification": "answerable",
+      "kind": "established",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "market_area",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-09",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-04",
+        "B4-1.3-03",
+        "B4-1.3-03",
+        "B4-1.3-06",
+        "B4-1.3-03",
+        "B4-1.3-03"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "market_area"
+        ],
+        "supported": [
+          "market_area"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM06",
+      "question": "What does Fannie Mae require for verification of comparable sales?",
+      "classification": "answerable",
+      "kind": "established",
+      "expected_sections": [
+        "B4-1.3-07"
+      ],
+      "actual_topic": "verification",
+      "actual_sections": [
+        "B4-1.3-07",
+        "B4-1.3-08"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "verification"
+        ],
+        "supported": [
+          "verification"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM07",
+      "question": "Can listings and pending sales be used in a Fannie Mae appraisal?",
+      "classification": "answerable",
+      "kind": "established",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "listings_contracts",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-07",
+        "B4-1.3-09",
+        "B4-1.3-07"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "listings_contracts"
+        ],
+        "supported": [
+          "listings_contracts"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM08",
+      "question": "How should sales concessions be adjusted under Fannie Mae guidelines?",
+      "classification": "answerable",
+      "kind": "established",
+      "expected_sections": [
+        "B4-1.3-09"
+      ],
+      "actual_topic": "concessions",
+      "actual_sections": [
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-07",
+        "B4-1.3-03",
+        "B4-1.3-08"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "concessions"
+        ],
+        "supported": [
+          "concessions"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM09",
+      "question": "What physical characteristics should comparable sales share with the subject under Fannie Mae?",
+      "classification": "answerable",
+      "kind": "straightforward",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "comparable_sales",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-07",
+        "B4-1.3-09",
+        "B4-1.3-05",
+        "B4-1.3-09",
+        "B4-1.3-05",
+        "B4-1.3-04",
+        "B4-1.3-06",
+        "B4-1.3-03"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "comparable_sales"
+        ],
+        "supported": [
+          "comparable_sales"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM10",
+      "question": "Do Fannie Mae comparables need similar legal characteristics?",
+      "classification": "answerable",
+      "kind": "paraphrase",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "comparable_sales",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-09",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-03",
+        "B4-1.3-09",
+        "B4-1.3-06",
+        "B4-1.3-09",
+        "B4-1.3-09"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "comparable_sales"
+        ],
+        "supported": [
+          "comparable_sales"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM11",
+      "question": "How many closed comparable sales does Fannie Mae require?",
+      "classification": "answerable",
+      "kind": "terminology",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "comparable_sales",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-07",
+        "B4-1.3-05",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-05",
+        "B4-1.3-06",
+        "B4-1.3-06",
+        "B4-1.3-07",
+        "B4-1.3-06"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "comparable_sales"
+        ],
+        "supported": [
+          "comparable_sales"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM12",
+      "question": "Can a previously closed subject property be a fourth Fannie Mae comparable?",
+      "classification": "answerable",
+      "kind": "exception",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "comparable_sales",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-06",
+        "B4-1.3-07",
+        "B4-1.3-05",
+        "B4-1.3-09",
+        "B4-1.3-05"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "comparable_sales"
+        ],
+        "supported": [
+          "comparable_sales"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM13",
+      "question": "Can I replace all closed comparable sales with listings for Fannie Mae?",
+      "classification": "answerable",
+      "kind": "misleading premise",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "listings_contracts",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
+      ],
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable",
+      "coverage": {
+        "requested": [
+          "listings_contracts"
+        ],
+        "supported": [
+          "listings_contracts"
+        ],
+        "unsupported": [],
+        "missing_terms": [
+          "replace"
+        ],
+        "complete": false
+      }
+    },
+    {
+      "id": "FM14",
+      "question": "Fannie Mae requires every comp within one mile, correct?",
+      "classification": "insufficient evidence",
+      "kind": "nonexistent numeric rule",
+      "expected_sections": [],
+      "actual_topic": "distance",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "correct_abstention",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "not_applicable",
+      "coverage": {
+        "requested": [
+          "distance"
+        ],
+        "supported": [
+          "distance"
+        ],
+        "unsupported": [],
+        "missing_terms": [
+          "every",
+          "correct"
+        ],
+        "complete": false
+      }
+    },
+    {
+      "id": "FM15",
+      "question": "Does Fannie Mae cap net adjustments at 15 percent?",
+      "classification": "answerable",
+      "kind": "adjustment myth",
+      "expected_sections": [
+        "B4-1.3-09"
+      ],
+      "actual_topic": "adjustments",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
+      ],
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable",
+      "coverage": {
+        "requested": [
+          "adjustments"
+        ],
+        "supported": [
+          "adjustments"
+        ],
+        "unsupported": [],
+        "missing_terms": [
+          "cap",
+          "15",
+          "percent"
+        ],
+        "complete": false
+      }
+    },
+    {
+      "id": "FM16",
+      "question": "Is a 25 percent gross adjustment a Fannie Mae rejection limit?",
+      "classification": "answerable",
+      "kind": "adjustment myth",
+      "expected_sections": [
+        "B4-1.3-09"
+      ],
+      "actual_topic": "adjustments",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
+      ],
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable",
+      "coverage": {
+        "requested": [
+          "adjustments"
+        ],
+        "supported": [
+          "adjustments"
+        ],
+        "unsupported": [],
+        "missing_terms": [
+          "25",
+          "percent"
+        ],
+        "complete": false
+      }
+    },
+    {
+      "id": "FM17",
+      "question": "Are the number of adjustments alone grounds to reject a Fannie Mae comparable?",
+      "classification": "answerable",
+      "kind": "paraphrase",
+      "expected_sections": [
+        "B4-1.3-09"
+      ],
+      "actual_topic": "adjustments",
+      "actual_sections": [
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-08",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-03"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "adjustments"
+        ],
+        "supported": [
+          "adjustments"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM18",
+      "question": "Does Fannie Mae prescribe a fixed $20 per square foot adjustment?",
+      "classification": "answerable",
+      "kind": "missing corpus",
+      "expected_sections": [
+        "B4-1.3-09"
+      ],
+      "actual_topic": "adjustments",
+      "actual_sections": [
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-03",
+        "B4-1.3-05",
+        "B4-1.3-08",
+        "B4-1.3-08"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "adjustments"
+        ],
+        "supported": [
+          "adjustments"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM19",
+      "question": "Must Fannie Mae adjustments reflect market reaction rather than arbitrary amounts?",
+      "classification": "answerable",
+      "kind": "straightforward",
+      "expected_sections": [
+        "B4-1.3-09"
+      ],
+      "actual_topic": "adjustments",
+      "actual_sections": [
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-03",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-03",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-08",
+        "B4-1.3-03"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "adjustments"
+        ],
+        "supported": [
+          "adjustments"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM20",
+      "question": "Should Fannie Mae concessions always be deducted dollar for dollar?",
+      "classification": "answerable",
+      "kind": "missing corpus",
+      "expected_sections": [
+        "B4-1.3-09"
+      ],
+      "actual_topic": "concessions",
+      "actual_sections": [
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-03",
+        "B4-1.3-08",
+        "B4-1.3-07"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "concessions"
+        ],
+        "supported": [
+          "concessions"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM21",
+      "question": "Can a financially interested party supply Fannie Mae comparable data without verification?",
+      "classification": "answerable",
+      "kind": "misleading premise",
+      "expected_sections": [
+        "B4-1.3-07"
+      ],
+      "actual_topic": "verification",
+      "actual_sections": [
+        "B4-1.3-07",
+        "B4-1.3-09",
+        "B4-1.3-08",
+        "B4-1.3-09",
+        "B4-1.3-09"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "verification"
+        ],
+        "supported": [
+          "verification"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM22",
+      "question": "Is public records a specific enough Fannie Mae verification source description?",
+      "classification": "answerable",
+      "kind": "terminology",
+      "expected_sections": [
+        "B4-1.3-07"
+      ],
+      "actual_topic": "verification",
+      "actual_sections": [
+        "B4-1.3-07",
+        "B4-1.3-09",
+        "B4-1.3-08",
+        "B4-1.3-09",
+        "B4-1.2-01",
+        "B4-1.3-09"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "verification"
+        ],
+        "supported": [
+          "verification"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM23",
+      "question": "Can multiple listing services and deed records be Fannie Mae data sources?",
+      "classification": "answerable",
+      "kind": "straightforward",
+      "expected_sections": [
+        "B4-1.3-07"
+      ],
+      "actual_topic": "verification",
+      "actual_sections": [
+        "B4-1.3-07",
+        "B4-1.3-08",
+        "B4-1.3-09",
+        "B4-1.3-08",
+        "B4-1.3-07",
+        "B4-1.3-03",
+        "B4-1.3-05"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "verification",
+          "listings_contracts"
+        ],
+        "supported": [
+          "verification",
+          "listings_contracts"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM24",
+      "question": "How many years of subject sales history does Fannie Mae require?",
+      "classification": "answerable",
+      "kind": "sales history",
+      "expected_sections": [
+        "B4-1.3-07"
+      ],
+      "actual_topic": "sales_history",
+      "actual_sections": [
+        "B4-1.3-07",
+        "B4-1.3-09"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "sales_history"
+        ],
+        "supported": [
+          "sales_history"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM25",
+      "question": "What prior sales history is required for Fannie Mae comparable sales?",
+      "classification": "answerable",
+      "kind": "sales history",
+      "expected_sections": [
+        "B4-1.3-07"
+      ],
+      "actual_topic": "sales_history",
+      "actual_sections": [
+        "B4-1.3-07",
+        "B4-1.3-09"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "sales_history"
+        ],
+        "supported": [
+          "sales_history"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM26",
+      "question": "Can an 18 month old comp be used for Fannie Mae?",
+      "classification": "answerable",
+      "kind": "terminology",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "older_comparables",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "failure",
+      "failures": [
+        "incomplete_evidence_coverage"
+      ],
+      "root_cause": "evidence_assembly",
+      "publisher_provenance": "not_applicable",
+      "coverage": {
+        "requested": [
+          "older_comparables"
+        ],
+        "supported": [
+          "older_comparables"
+        ],
+        "unsupported": [],
+        "missing_terms": [
+          "18"
+        ],
+        "complete": false
+      }
+    },
+    {
+      "id": "FM27",
+      "question": "Is the most recent sale always the best Fannie Mae comparable?",
+      "classification": "answerable",
+      "kind": "misleading premise",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "comparable_sales",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-09",
+        "B4-1.3-05",
+        "B4-1.3-09",
+        "B4-1.3-07",
+        "B4-1.3-05",
+        "B4-1.3-06"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "comparable_sales"
+        ],
+        "supported": [
+          "comparable_sales"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM28",
+      "question": "What explanation supports distant rural Fannie Mae comparables?",
+      "classification": "answerable",
+      "kind": "paraphrase",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "rural_comparables",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-03"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "rural_comparables"
+        ],
+        "supported": [
+          "rural_comparables"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM29",
+      "question": "Can I use noncomparable properties when Fannie Mae rural sales are scarce?",
+      "classification": "answerable",
+      "kind": "partially answerable",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "rural_comparables",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-03",
+        "B4-1.3-03"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "rural_comparables"
+        ],
+        "supported": [
+          "rural_comparables"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM30",
+      "question": "Can foreclosure comparables be used in a Fannie Mae appraisal?",
+      "classification": "answerable",
+      "kind": "missing corpus",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "comparable_sales",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-03",
+        "B4-1.3-09",
+        "B4-1.3-05",
+        "B4-1.3-09",
+        "B4-1.3-09"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "comparable_sales"
+        ],
+        "supported": [
+          "comparable_sales"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM31",
+      "question": "Does Fannie Mae permit short sale comparables?",
+      "classification": "answerable",
+      "kind": "missing corpus",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "comparable_sales",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-05",
+        "B4-1.3-09",
+        "B4-1.3-04",
+        "B4-1.3-05",
+        "B4-1.3-06"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "comparable_sales"
+        ],
+        "supported": [
+          "comparable_sales"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM32",
+      "question": "May I expand the market area just to include Fannie Mae comps?",
+      "classification": "answerable",
+      "kind": "misleading premise",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "market_area",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-09",
+        "B4-1.3-03",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-03",
+        "B4-1.2-01"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "market_area"
+        ],
+        "supported": [
+          "market_area"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM33",
+      "question": "Are location adjustments always required for Fannie Mae outside-market comparables?",
+      "classification": "answerable",
+      "kind": "qualification",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "adjustments",
+      "actual_sections": [
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-05",
+        "B4-1.3-03",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-08",
+        "B4-1.3-03",
+        "B4-1.3-05"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "adjustments"
+        ],
+        "supported": [
+          "adjustments"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM34",
+      "question": "How must Fannie Mae neighborhood boundaries be described?",
+      "classification": "answerable",
+      "kind": "missing corpus",
+      "expected_sections": [
+        "B4-1.3-03"
+      ],
+      "actual_topic": "market_area",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-03",
+        "B4-1.3-05",
+        "B4-1.3-03",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-09",
+        "B4-1.3-04",
+        "B4-1.3-03",
+        "B4-1.3-05",
+        "B4-1.3-03",
+        "B4-1.3-06",
+        "B4-1.3-03"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "market_area"
+        ],
+        "supported": [
+          "market_area"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM35",
+      "question": "How does Fannie Mae treat legal nonconforming zoning?",
+      "classification": "answerable",
+      "kind": "missing corpus",
+      "expected_sections": [
+        "B4-1.3-04"
+      ],
+      "actual_topic": "zoning",
+      "actual_sections": [
+        "B4-1.3-04",
+        "B4-1.3-05",
+        "B4-1.3-03",
+        "B4-1.3-06"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "zoning"
+        ],
+        "supported": [
+          "zoning"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM36",
+      "question": "How does Fannie Mae report below-grade finished area?",
+      "classification": "answerable",
+      "kind": "missing corpus",
+      "expected_sections": [
+        "B4-1.3-05"
+      ],
+      "actual_topic": "below_grade",
+      "actual_sections": [
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.2-01",
+        "B4-1.3-08",
+        "B4-1.3-09",
+        "B4-1.2-01",
+        "B4-1.3-06"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "below_grade"
+        ],
+        "supported": [
+          "below_grade"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM37",
+      "question": "Can a Fannie Mae property in C6 condition be appraised as is?",
+      "classification": "answerable",
+      "kind": "missing corpus",
+      "expected_sections": [
+        "B4-1.3-06"
+      ],
+      "actual_topic": "condition",
+      "actual_sections": [
+        "B4-1.3-06",
+        "B4-1.3-06",
+        "B4-1.3-06",
+        "B4-1.3-06",
+        "B4-1.3-06",
+        "B4-1.3-06"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "condition"
+        ],
+        "supported": [
+          "condition"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM38",
+      "question": "What photos does Fannie Mae require in an appraisal?",
+      "classification": "answerable",
+      "kind": "missing corpus",
+      "expected_sections": [
+        "B4-1.2-01"
+      ],
+      "actual_topic": "photos",
+      "actual_sections": [
+        "B4-1.2-01"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "photos"
+        ],
+        "supported": [
+          "photos"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM39",
+      "question": "Can Fannie Mae reconciliation use a weighted average with proper explanation?",
+      "classification": "answerable",
+      "kind": "exception",
+      "expected_sections": [
+        "B4-1.3-11"
+      ],
+      "actual_topic": "reconciliation",
+      "actual_sections": [
+        "B4-1.3-11",
+        "B4-1.3-09"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "reconciliation"
+        ],
+        "supported": [
+          "reconciliation"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM40",
+      "question": "May I simply average the approaches for Fannie Mae reconciliation?",
+      "classification": "answerable",
+      "kind": "misleading premise",
+      "expected_sections": [
+        "B4-1.3-11"
+      ],
+      "actual_topic": "reconciliation",
+      "actual_sections": [
+        "B4-1.3-11"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "reconciliation"
+        ],
+        "supported": [
+          "reconciliation"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM41",
+      "question": "Must the Fannie Mae final reconciled value be within the range of approaches?",
+      "classification": "answerable",
+      "kind": "straightforward",
+      "expected_sections": [
+        "B4-1.3-11"
+      ],
+      "actual_topic": "reconciliation",
+      "actual_sections": [
+        "B4-1.3-11",
+        "B4-1.3-09"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "reconciliation"
+        ],
+        "supported": [
+          "reconciliation"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM42",
+      "question": "What must Fannie Mae reconciliation report about the most weight?",
+      "classification": "answerable",
+      "kind": "straightforward",
+      "expected_sections": [
+        "B4-1.3-11"
+      ],
+      "actual_topic": "reconciliation",
+      "actual_sections": [
+        "B4-1.3-11",
+        "B4-1.3-09"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "reconciliation"
+        ],
+        "supported": [
+          "reconciliation"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM43",
+      "question": "What does Fannie Mae require for verification and gross adjustments?",
+      "classification": "answerable",
+      "kind": "multi-part",
+      "expected_sections": [
+        "B4-1.3-07",
+        "B4-1.3-09"
+      ],
+      "actual_topic": "adjustments",
+      "actual_sections": [
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-07",
+        "B4-1.3-08",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-06"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "adjustments",
+          "verification"
+        ],
+        "supported": [
+          "adjustments",
+          "verification"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM44",
+      "question": "Explain older and rural Fannie Mae comparables.",
+      "classification": "answerable",
+      "kind": "multi-part",
+      "expected_sections": [
+        "B4-1.3-08"
+      ],
+      "actual_topic": "rural_comparables",
+      "actual_sections": [
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-08",
+        "B4-1.3-03"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "rural_comparables"
+        ],
+        "supported": [
+          "rural_comparables"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM45",
+      "question": "How do Fannie Mae adjustments and zoning requirements apply?",
+      "classification": "answerable",
+      "kind": "partially answerable",
+      "expected_sections": [
+        "B4-1.3-09",
+        "B4-1.3-04"
+      ],
+      "actual_topic": "zoning",
+      "actual_sections": [
+        "B4-1.3-03",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-04",
+        "B4-1.3-09",
+        "B4-1.3-09",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-05",
+        "B4-1.3-08",
+        "B4-1.3-05",
+        "B4-1.3-03",
+        "B4-1.3-08",
+        "B4-1.3-03"
+      ],
+      "confidence": "High",
+      "outcome": "correct_grounded_answer",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "hash_verified_capture",
+      "coverage": {
+        "requested": [
+          "zoning",
+          "adjustments"
+        ],
+        "supported": [
+          "zoning",
+          "adjustments"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": true
+      }
+    },
+    {
+      "id": "FM46",
+      "question": "Compare Fannie Mae and Freddie Mac comparable distance rules.",
+      "classification": "ambiguous authority",
+      "kind": "ambiguous authority",
+      "expected_sections": [],
+      "actual_topic": "distance",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "correct_abstention",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "not_applicable",
+      "coverage": {
+        "requested": [
+          "distance"
+        ],
+        "supported": [
+          "distance"
+        ],
+        "unsupported": [],
+        "missing_terms": [
+          "compare",
+          "rule"
+        ],
+        "complete": false
+      }
+    },
+    {
+      "id": "FM47",
+      "question": "Does FHA allow Fannie Mae comparable adjustments?",
+      "classification": "ambiguous authority",
+      "kind": "ambiguous authority",
+      "expected_sections": [],
+      "actual_topic": "adjustments",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "correct_abstention",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "not_applicable",
+      "coverage": {
+        "requested": [
+          "adjustments"
+        ],
+        "supported": [
+          "adjustments"
+        ],
+        "unsupported": [],
+        "missing_terms": [],
+        "complete": false
+      }
+    },
+    {
+      "id": "FM48",
+      "question": "What is the required bitcoin adjustment in a Fannie Mae appraisal?",
+      "classification": "intentionally unsupported",
+      "kind": "intentionally unsupported",
+      "expected_sections": [],
+      "actual_topic": "adjustments",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "correct_abstention",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "not_applicable",
+      "coverage": {
+        "requested": [
+          "adjustments"
+        ],
+        "supported": [
+          "adjustments"
+        ],
+        "unsupported": [],
+        "missing_terms": [
+          "bitcoin"
+        ],
+        "complete": false
+      }
+    },
+    {
+      "id": "FM49",
+      "question": "Does Fannie Mae guarantee my appraised value will be approved?",
+      "classification": "intentionally unsupported",
+      "kind": "intentionally unsupported",
+      "expected_sections": [],
+      "actual_topic": "general",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "correct_abstention",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "not_applicable",
+      "coverage": {
+        "requested": [
+          "general"
+        ],
+        "supported": [],
+        "unsupported": [
+          "general"
+        ],
+        "missing_terms": [
+          "guarantee",
+          "apprais",
+          "value",
+          "will",
+          "approv"
+        ],
+        "complete": false
+      }
+    },
+    {
+      "id": "FM50",
+      "question": "What does Freddie Mac require for comparable sales?",
+      "classification": "insufficient evidence",
+      "kind": "other authority",
+      "expected_sections": [],
+      "actual_topic": "comparable_sales",
+      "actual_sections": [],
+      "confidence": "Low",
+      "outcome": "correct_abstention",
+      "failures": [],
+      "root_cause": null,
+      "publisher_provenance": "not_applicable",
+      "coverage": {
+        "requested": [
+          "comparable_sales"
+        ],
+        "supported": [],
+        "unsupported": [
+          "comparable_sales"
+        ],
+        "missing_terms": [],
+        "complete": false
+      }
+    }
+  ]
+}

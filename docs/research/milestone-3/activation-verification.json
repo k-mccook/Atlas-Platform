@@ -1,0 +1,478 @@
+{
+  "observed_at": "2026-09-16T19:12:34.892Z",
+  "activation_sha256": "2931154dc8f8c58303ce2b86dfcacce8144a004c6c1cb2dd8ef68a03380f78fd",
+  "preflight": {
+    "expected_status": "staged_provenance_review",
+    "source_count": 9,
+    "chunk_count": 67,
+    "source_mismatches": 0,
+    "chunk_mismatches": 0,
+    "legacy_sources": [
+      {
+        "id": "6ebe6a6a-393a-4313-90c6-9ef0b922f9e5",
+        "status": "current"
+      },
+      {
+        "id": "2676cf5e-216f-4642-a584-e0fac610b4a6",
+        "status": "current"
+      }
+    ],
+    "legacy_labels": [
+      {
+        "id": "184bc948-46f7-4c35-ab05-0901b30f2b37",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "8f4ec5eb-8aaf-431b-ba30-213229d11764",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "58399be5-629d-4fb3-bc76-d70bd347e357",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "1a9b3bf8-65b5-44da-abdb-6a5c73e5d7a8",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "b576c04e-4a81-4a72-89ea-72f364c01c1d",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "68a33188-648b-41e9-9d58-3ad6b154c051",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "d6e61b42-b75f-4f61-9790-b7c1d7ced295",
+        "authority_level": "authoritative"
+      }
+    ],
+    "section_counts": [
+      {
+        "section": "B4-1.2-01",
+        "chunks": 5
+      },
+      {
+        "section": "B4-1.3-03",
+        "chunks": 9
+      },
+      {
+        "section": "B4-1.3-04",
+        "chunks": 10
+      },
+      {
+        "section": "B4-1.3-05",
+        "chunks": 13
+      },
+      {
+        "section": "B4-1.3-06",
+        "chunks": 11
+      },
+      {
+        "section": "B4-1.3-07",
+        "chunks": 4
+      },
+      {
+        "section": "B4-1.3-08",
+        "chunks": 7
+      },
+      {
+        "section": "B4-1.3-09",
+        "chunks": 5
+      },
+      {
+        "section": "B4-1.3-11",
+        "chunks": 3
+      }
+    ]
+  },
+  "postflight": {
+    "expected_status": "current",
+    "source_count": 9,
+    "chunk_count": 67,
+    "source_mismatches": 0,
+    "chunk_mismatches": 0,
+    "legacy_sources": [
+      {
+        "id": "6ebe6a6a-393a-4313-90c6-9ef0b922f9e5",
+        "status": "superseded"
+      },
+      {
+        "id": "2676cf5e-216f-4642-a584-e0fac610b4a6",
+        "status": "superseded"
+      }
+    ],
+    "legacy_labels": [
+      {
+        "id": "68a33188-648b-41e9-9d58-3ad6b154c051",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "184bc948-46f7-4c35-ab05-0901b30f2b37",
+        "authority_level": "derived"
+      },
+      {
+        "id": "8f4ec5eb-8aaf-431b-ba30-213229d11764",
+        "authority_level": "derived"
+      },
+      {
+        "id": "58399be5-629d-4fb3-bc76-d70bd347e357",
+        "authority_level": "derived"
+      },
+      {
+        "id": "1a9b3bf8-65b5-44da-abdb-6a5c73e5d7a8",
+        "authority_level": "derived"
+      },
+      {
+        "id": "b576c04e-4a81-4a72-89ea-72f364c01c1d",
+        "authority_level": "derived"
+      },
+      {
+        "id": "d6e61b42-b75f-4f61-9790-b7c1d7ced295",
+        "authority_level": "derived"
+      }
+    ],
+    "section_counts": [
+      {
+        "section": "B4-1.2-01",
+        "chunks": 5
+      },
+      {
+        "section": "B4-1.3-03",
+        "chunks": 9
+      },
+      {
+        "section": "B4-1.3-04",
+        "chunks": 10
+      },
+      {
+        "section": "B4-1.3-05",
+        "chunks": 13
+      },
+      {
+        "section": "B4-1.3-06",
+        "chunks": 11
+      },
+      {
+        "section": "B4-1.3-07",
+        "chunks": 4
+      },
+      {
+        "section": "B4-1.3-08",
+        "chunks": 7
+      },
+      {
+        "section": "B4-1.3-09",
+        "chunks": 5
+      },
+      {
+        "section": "B4-1.3-11",
+        "chunks": 3
+      }
+    ]
+  },
+  "catalog_unchanged": true,
+  "legacy_content_unchanged": true,
+  "catalog_before": {
+    "function_definition": "CREATE OR REPLACE FUNCTION public.search_knowledge(search_query text)\n RETURNS TABLE(chunk_id uuid, source_id uuid, source_title text, organization text, source_type text, source_url text, domain text, section text, chunk_title text, authority_level text, source_version text, effective_date date, content text, rank integer)\n LANGUAGE sql\n SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\n\r\n WITH query_words AS (\r\n SELECT DISTINCT lower(word) AS word\r\n FROM regexp_split_to_table(search_query, '\\s+') AS word\r\n WHERE length(word) >= 3\r\n AND lower(word) NOT IN (\r\n 'the',\r\n 'and',\r\n 'for',\r\n 'what',\r\n 'when',\r\n 'where',\r\n 'does',\r\n 'are',\r\n 'how',\r\n 'why',\r\n 'can',\r\n 'this',\r\n 'that',\r\n 'with',\r\n 'from',\r\n 'into',\r\n 'become',\r\n 'have',\r\n 'has',\r\n 'had',\r\n 'under',\r\n 'would',\r\n 'should',\r\n 'could',\r\n 'about'\r\n )\r\n ),\r\n\r\n scored AS (\r\n SELECT\r\n kc.id AS chunk_id,\r\n ks.id AS source_id,\r\n ks.title AS source_title,\r\n ks.organization,\r\n ks.source_type,\r\n ks.url AS source_url,\r\n ks.domain,\r\n kc.section,\r\n kc.title AS chunk_title,\r\n kc.authority_level,\r\n kc.source_version,\r\n kc.effective_date,\r\n kc.content,\r\n\r\n (\r\n SELECT COUNT(*)\r\n FROM query_words qw\r\n WHERE\r\n lower(kc.content) LIKE '%' || qw.word || '%'\r\n OR lower(COALESCE(kc.title, '')) LIKE '%' || qw.word || '%'\r\n OR lower(COALESCE(kc.section, '')) LIKE '%' || qw.word || '%'\r\n OR lower(COALESCE(ks.title, '')) LIKE '%' || qw.word || '%'\r\n OR lower(COALESCE(ks.organization, '')) LIKE '%' || qw.word || '%'\r\n )::integer AS rank\r\n\r\n FROM public.knowledge_chunks kc\r\n\r\n JOIN public.knowledge_sources ks\r\n ON kc.source_id = ks.id\r\n\r\n WHERE COALESCE(ks.status, 'current') = 'current'\r\n )\r\n\r\n SELECT\r\n chunk_id,\r\n source_id,\r\n source_title,\r\n organization,\r\n source_type,\r\n source_url,\r\n domain,\r\n section,\r\n chunk_title,\r\n authority_level,\r\n source_version,\r\n effective_date,\r\n content,\r\n rank\r\n\r\n FROM scored\r\n\r\n WHERE rank > 0\r\n\r\n ORDER BY\r\n rank DESC,\r\n CASE\r\n WHEN lower(COALESCE(authority_level, '')) = 'authoritative'\r\n THEN 0\r\n ELSE 1\r\n END,\r\n chunk_title ASC\r\n\r\n LIMIT 12;\r\n\r\n$function$\n",
+    "function_acl": "{postgres=X/postgres,authenticated=X/postgres,service_role=X/postgres}",
+    "function_owner": "postgres",
+    "tables": [
+      {
+        "name": "knowledge_chunks",
+        "rls": true,
+        "forced": false,
+        "acl": "{postgres=arwdDxtm/postgres,anon=r/postgres,authenticated=r/postgres,service_role=arwdDxtm/postgres}"
+      },
+      {
+        "name": "knowledge_sources",
+        "rls": true,
+        "forced": false,
+        "acl": "{postgres=arwdDxtm/postgres,anon=r/postgres,authenticated=r/postgres,service_role=arwdDxtm/postgres}"
+      }
+    ],
+    "indexes": [
+      {
+        "table": "knowledge_chunks",
+        "name": "knowledge_chunks_content_idx",
+        "definition": "CREATE INDEX knowledge_chunks_content_idx ON public.knowledge_chunks USING gin (to_tsvector('english'::regconfig, content))"
+      },
+      {
+        "table": "knowledge_chunks",
+        "name": "knowledge_chunks_pkey",
+        "definition": "CREATE UNIQUE INDEX knowledge_chunks_pkey ON public.knowledge_chunks USING btree (id)"
+      },
+      {
+        "table": "knowledge_chunks",
+        "name": "knowledge_chunks_source_id_idx",
+        "definition": "CREATE INDEX knowledge_chunks_source_id_idx ON public.knowledge_chunks USING btree (source_id)"
+      },
+      {
+        "table": "knowledge_sources",
+        "name": "knowledge_sources_pkey",
+        "definition": "CREATE UNIQUE INDEX knowledge_sources_pkey ON public.knowledge_sources USING btree (id)"
+      }
+    ],
+    "policies": [
+      {
+        "table": "knowledge_chunks",
+        "name": "Authenticated users can read knowledge chunks",
+        "roles": [
+          "authenticated"
+        ],
+        "command": "SELECT",
+        "qual": "true",
+        "check": null
+      },
+      {
+        "table": "knowledge_sources",
+        "name": "Authenticated users can read knowledge sources",
+        "roles": [
+          "authenticated"
+        ],
+        "command": "SELECT",
+        "qual": "true",
+        "check": null
+      }
+    ],
+    "user_triggers": 0,
+    "legacy": [
+      {
+        "id": "184bc948-46f7-4c35-ab05-0901b30f2b37",
+        "source_id": "6ebe6a6a-393a-4313-90c6-9ef0b922f9e5",
+        "md5_lf": "389078efcf953df65793f5f86acb0d8d",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "1a9b3bf8-65b5-44da-abdb-6a5c73e5d7a8",
+        "source_id": "2676cf5e-216f-4642-a584-e0fac610b4a6",
+        "md5_lf": "e85407289da7a7156abcaaaae97ed3e2",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "58399be5-629d-4fb3-bc76-d70bd347e357",
+        "source_id": "6ebe6a6a-393a-4313-90c6-9ef0b922f9e5",
+        "md5_lf": "92d596eef98a34d2978eabb6401992d0",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "68a33188-648b-41e9-9d58-3ad6b154c051",
+        "source_id": "2676cf5e-216f-4642-a584-e0fac610b4a6",
+        "md5_lf": "3804be62dd9b0d3f6e339f6672ef64f9",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "8f4ec5eb-8aaf-431b-ba30-213229d11764",
+        "source_id": "6ebe6a6a-393a-4313-90c6-9ef0b922f9e5",
+        "md5_lf": "b0ac075d329ea0f88adb3e6eb3d9dedf",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "b576c04e-4a81-4a72-89ea-72f364c01c1d",
+        "source_id": "2676cf5e-216f-4642-a584-e0fac610b4a6",
+        "md5_lf": "c0c7ad0e7023cfa245cdb2b3ed3f826b",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "d6e61b42-b75f-4f61-9790-b7c1d7ced295",
+        "source_id": "2676cf5e-216f-4642-a584-e0fac610b4a6",
+        "md5_lf": "c15254978dd70800efa567d2424d0bbc",
+        "authority_level": "authoritative"
+      }
+    ]
+  },
+  "catalog_after": {
+    "function_definition": "CREATE OR REPLACE FUNCTION public.search_knowledge(search_query text)\n RETURNS TABLE(chunk_id uuid, source_id uuid, source_title text, organization text, source_type text, source_url text, domain text, section text, chunk_title text, authority_level text, source_version text, effective_date date, content text, rank integer)\n LANGUAGE sql\n SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\n\r\n WITH query_words AS (\r\n SELECT DISTINCT lower(word) AS word\r\n FROM regexp_split_to_table(search_query, '\\s+') AS word\r\n WHERE length(word) >= 3\r\n AND lower(word) NOT IN (\r\n 'the',\r\n 'and',\r\n 'for',\r\n 'what',\r\n 'when',\r\n 'where',\r\n 'does',\r\n 'are',\r\n 'how',\r\n 'why',\r\n 'can',\r\n 'this',\r\n 'that',\r\n 'with',\r\n 'from',\r\n 'into',\r\n 'become',\r\n 'have',\r\n 'has',\r\n 'had',\r\n 'under',\r\n 'would',\r\n 'should',\r\n 'could',\r\n 'about'\r\n )\r\n ),\r\n\r\n scored AS (\r\n SELECT\r\n kc.id AS chunk_id,\r\n ks.id AS source_id,\r\n ks.title AS source_title,\r\n ks.organization,\r\n ks.source_type,\r\n ks.url AS source_url,\r\n ks.domain,\r\n kc.section,\r\n kc.title AS chunk_title,\r\n kc.authority_level,\r\n kc.source_version,\r\n kc.effective_date,\r\n kc.content,\r\n\r\n (\r\n SELECT COUNT(*)\r\n FROM query_words qw\r\n WHERE\r\n lower(kc.content) LIKE '%' || qw.word || '%'\r\n OR lower(COALESCE(kc.title, '')) LIKE '%' || qw.word || '%'\r\n OR lower(COALESCE(kc.section, '')) LIKE '%' || qw.word || '%'\r\n OR lower(COALESCE(ks.title, '')) LIKE '%' || qw.word || '%'\r\n OR lower(COALESCE(ks.organization, '')) LIKE '%' || qw.word || '%'\r\n )::integer AS rank\r\n\r\n FROM public.knowledge_chunks kc\r\n\r\n JOIN public.knowledge_sources ks\r\n ON kc.source_id = ks.id\r\n\r\n WHERE COALESCE(ks.status, 'current') = 'current'\r\n )\r\n\r\n SELECT\r\n chunk_id,\r\n source_id,\r\n source_title,\r\n organization,\r\n source_type,\r\n source_url,\r\n domain,\r\n section,\r\n chunk_title,\r\n authority_level,\r\n source_version,\r\n effective_date,\r\n content,\r\n rank\r\n\r\n FROM scored\r\n\r\n WHERE rank > 0\r\n\r\n ORDER BY\r\n rank DESC,\r\n CASE\r\n WHEN lower(COALESCE(authority_level, '')) = 'authoritative'\r\n THEN 0\r\n ELSE 1\r\n END,\r\n chunk_title ASC\r\n\r\n LIMIT 12;\r\n\r\n$function$\n",
+    "function_acl": "{postgres=X/postgres,authenticated=X/postgres,service_role=X/postgres}",
+    "function_owner": "postgres",
+    "tables": [
+      {
+        "name": "knowledge_chunks",
+        "rls": true,
+        "forced": false,
+        "acl": "{postgres=arwdDxtm/postgres,anon=r/postgres,authenticated=r/postgres,service_role=arwdDxtm/postgres}"
+      },
+      {
+        "name": "knowledge_sources",
+        "rls": true,
+        "forced": false,
+        "acl": "{postgres=arwdDxtm/postgres,anon=r/postgres,authenticated=r/postgres,service_role=arwdDxtm/postgres}"
+      }
+    ],
+    "indexes": [
+      {
+        "table": "knowledge_chunks",
+        "name": "knowledge_chunks_content_idx",
+        "definition": "CREATE INDEX knowledge_chunks_content_idx ON public.knowledge_chunks USING gin (to_tsvector('english'::regconfig, content))"
+      },
+      {
+        "table": "knowledge_chunks",
+        "name": "knowledge_chunks_pkey",
+        "definition": "CREATE UNIQUE INDEX knowledge_chunks_pkey ON public.knowledge_chunks USING btree (id)"
+      },
+      {
+        "table": "knowledge_chunks",
+        "name": "knowledge_chunks_source_id_idx",
+        "definition": "CREATE INDEX knowledge_chunks_source_id_idx ON public.knowledge_chunks USING btree (source_id)"
+      },
+      {
+        "table": "knowledge_sources",
+        "name": "knowledge_sources_pkey",
+        "definition": "CREATE UNIQUE INDEX knowledge_sources_pkey ON public.knowledge_sources USING btree (id)"
+      }
+    ],
+    "policies": [
+      {
+        "table": "knowledge_chunks",
+        "name": "Authenticated users can read knowledge chunks",
+        "roles": [
+          "authenticated"
+        ],
+        "command": "SELECT",
+        "qual": "true",
+        "check": null
+      },
+      {
+        "table": "knowledge_sources",
+        "name": "Authenticated users can read knowledge sources",
+        "roles": [
+          "authenticated"
+        ],
+        "command": "SELECT",
+        "qual": "true",
+        "check": null
+      }
+    ],
+    "user_triggers": 0,
+    "legacy": [
+      {
+        "id": "184bc948-46f7-4c35-ab05-0901b30f2b37",
+        "source_id": "6ebe6a6a-393a-4313-90c6-9ef0b922f9e5",
+        "md5_lf": "389078efcf953df65793f5f86acb0d8d",
+        "authority_level": "derived"
+      },
+      {
+        "id": "1a9b3bf8-65b5-44da-abdb-6a5c73e5d7a8",
+        "source_id": "2676cf5e-216f-4642-a584-e0fac610b4a6",
+        "md5_lf": "e85407289da7a7156abcaaaae97ed3e2",
+        "authority_level": "derived"
+      },
+      {
+        "id": "58399be5-629d-4fb3-bc76-d70bd347e357",
+        "source_id": "6ebe6a6a-393a-4313-90c6-9ef0b922f9e5",
+        "md5_lf": "92d596eef98a34d2978eabb6401992d0",
+        "authority_level": "derived"
+      },
+      {
+        "id": "68a33188-648b-41e9-9d58-3ad6b154c051",
+        "source_id": "2676cf5e-216f-4642-a584-e0fac610b4a6",
+        "md5_lf": "3804be62dd9b0d3f6e339f6672ef64f9",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "8f4ec5eb-8aaf-431b-ba30-213229d11764",
+        "source_id": "6ebe6a6a-393a-4313-90c6-9ef0b922f9e5",
+        "md5_lf": "b0ac075d329ea0f88adb3e6eb3d9dedf",
+        "authority_level": "derived"
+      },
+      {
+        "id": "b576c04e-4a81-4a72-89ea-72f364c01c1d",
+        "source_id": "2676cf5e-216f-4642-a584-e0fac610b4a6",
+        "md5_lf": "c0c7ad0e7023cfa245cdb2b3ed3f826b",
+        "authority_level": "derived"
+      },
+      {
+        "id": "d6e61b42-b75f-4f61-9790-b7c1d7ced295",
+        "source_id": "2676cf5e-216f-4642-a584-e0fac610b4a6",
+        "md5_lf": "c15254978dd70800efa567d2424d0bbc",
+        "authority_level": "derived"
+      }
+    ]
+  },
+  "recovery_verified_at": "2026-09-17T01:10:48.692Z",
+  "recovery_postflight": {
+    "expected_status": "current",
+    "source_count": 9,
+    "chunk_count": 67,
+    "source_mismatches": 0,
+    "chunk_mismatches": 0,
+    "legacy_sources": [
+      {
+        "id": "6ebe6a6a-393a-4313-90c6-9ef0b922f9e5",
+        "status": "superseded"
+      },
+      {
+        "id": "2676cf5e-216f-4642-a584-e0fac610b4a6",
+        "status": "superseded"
+      }
+    ],
+    "legacy_labels": [
+      {
+        "id": "68a33188-648b-41e9-9d58-3ad6b154c051",
+        "authority_level": "authoritative"
+      },
+      {
+        "id": "184bc948-46f7-4c35-ab05-0901b30f2b37",
+        "authority_level": "derived"
+      },
+      {
+        "id": "8f4ec5eb-8aaf-431b-ba30-213229d11764",
+        "authority_level": "derived"
+      },
+      {
+        "id": "58399be5-629d-4fb3-bc76-d70bd347e357",
+        "authority_level": "derived"
+      },
+      {
+        "id": "1a9b3bf8-65b5-44da-abdb-6a5c73e5d7a8",
+        "authority_level": "derived"
+      },
+      {
+        "id": "b576c04e-4a81-4a72-89ea-72f364c01c1d",
+        "authority_level": "derived"
+      },
+      {
+        "id": "d6e61b42-b75f-4f61-9790-b7c1d7ced295",
+        "authority_level": "derived"
+      }
+    ],
+    "section_counts": [
+      {
+        "section": "B4-1.2-01",
+        "chunks": 5
+      },
+      {
+        "section": "B4-1.3-03",
+        "chunks": 9
+      },
+      {
+        "section": "B4-1.3-04",
+        "chunks": 10
+      },
+      {
+        "section": "B4-1.3-05",
+        "chunks": 13
+      },
+      {
+        "section": "B4-1.3-06",
+        "chunks": 11
+      },
+      {
+        "section": "B4-1.3-07",
+        "chunks": 4
+      },
+      {
+        "section": "B4-1.3-08",
+        "chunks": 7
+      },
+      {
+        "section": "B4-1.3-09",
+        "chunks": 5
+      },
+      {
+        "section": "B4-1.3-11",
+        "chunks": 3
+      }
+    ]
+  }
+}

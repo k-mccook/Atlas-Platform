@@ -1,5 +1,7 @@
 # Application-only recognition pass — activation still unexecuted
 
+Historical pre-activation report. See [ACTIVATION.md](ACTIVATION.md) for the subsequent approved activation and actual production results.
+
 Starting checkpoint: `bd694b64ea837f5d6da38c9173e64874e3123624`, clean main. The starting benchmark was reproduced before editing: 25 grounded / 6 correct abstentions / 19 coverage failures, zero unsupported answers. Its exact report is preserved in `benchmark-first-staged.json`. The benchmark question strings, classifications and proposition checks were not changed in this pass.
 
 A fresh SELECT-only run of `proposed-corpus-verify_load.sql` confirmed nine sources and 67 chunks, zero field mismatches, staged_provenance_review status, and both legacy sources still current. No database mutation, activation, schema/function/index/grant/RLS/Auth change, credential creation or paid service was used. Load/activation SQL files are unchanged.

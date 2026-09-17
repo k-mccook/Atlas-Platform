@@ -1,5 +1,7 @@
 # Staged load executed; activation NOT executed
 
+Historical staged-load receipt. See [ACTIVATION.md](ACTIVATION.md) for the subsequent approved activation and current production state.
+
 On September 14, 2026, the user approved only the exact staged load from checkpoint `56d5ac3c9043895aa3b34778cf7464f1545e2a0d`. Its Git contents and normalized UTF-8 SHA-256 were checked before submission:
 
 `2710058bed99116f598c82f41cc6f76a0d79b553628be4027a5d67ab30d9fa76`
